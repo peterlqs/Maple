@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
-
+        android:id="@+id/mainScore"
+        android:icon="@drawable/ic_baseline_post_add_24"
+        android:title="Score" />
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
-
+        android:id="@+id/mainMic"
+        android:icon="@drawable/ic_baseline_mic_none_24"
+        android:title="Mic" />
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
-
+        android:id="@+id/bbn_item3"
+        android:title=""/>
+    <item
+        android:id="@+id/mainNotification"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="Bell" />
+    <item
+        android:id="@+id/mainSetting"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Setting" />
 </menu>

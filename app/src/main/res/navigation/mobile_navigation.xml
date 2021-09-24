@@ -3,23 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/mainRecommendation">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.maple.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/mainSetting"
+        android:name="com.example.maple.ui.setting.mainSetting"
+        android:label="fragment_main_setting"
+        tools:layout="@layout/fragment_main_setting" />
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.maple.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/mainScore"
+        android:name="com.example.maple.ui.score.MainScore"
+        android:label="main_score_fragment"
+        tools:layout="@layout/main_score_fragment" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.maple.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/mainMic"
+        android:name="com.example.maple.ui.mic.MainMic"
+        android:label="main_mic_fragment"
+        tools:layout="@layout/main_mic_fragment" />
+    <fragment
+        android:id="@+id/mainNotification"
+        android:name="com.example.maple.ui.notification.MainNotification"
+        android:label="main_notification_fragment"
+        tools:layout="@layout/main_notification_fragment" />
+    <fragment
+        android:id="@+id/mainRecommendation"
+        android:name="com.example.maple.ui.recommendation.MainRecommendation"
+        android:label="main_recommendation_fragment"
+        tools:layout="@layout/main_recommendation_fragment" />
+    <activity
+        android:id="@+id/login"
+        android:name="com.example.maple.Login"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+
 </navigation>
