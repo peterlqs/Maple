@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="220dp"
+        android:layout_width="230dp"
         android:layout_height="340dp"
         android:background="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,37 +17,78 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/signInBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.552" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đăng nhập"
+        android:textColor="@color/palette4"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintVertical_bias="0.07" />
 
-    <Button
-        android:id="@+id/signInBtn2"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signInBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ẩn danh"
+        android:backgroundTint="@android:color/transparent"
+        android:backgroundTintMode="src_in"
+        android:drawableLeft="@drawable/ic_search"
+        android:gravity="center_vertical"
+        android:text="Đăng nhập Google"
+        android:textColor="#000000"
+        android:textSize="11sp"
+        app:backgroundTint="@color/palette1"
+        app:cornerRadius="30dp"
+        app:iconPadding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.253"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="#000000"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signInBtn2"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_anonymous"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:text="Ẩn danh"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:cornerRadius="30dp"
+        app:iconPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/signInBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/signInBtn"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
+        app:layout_constraintVertical_bias="0.444"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="#000000"
+        app:strokeWidth="2dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="102dp"
+        android:layout_height="92dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.152" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

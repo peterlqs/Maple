@@ -1,32 +1,40 @@
 package com.example.maple.ui.score
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.maple.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import com.example.maple.databinding.MainScoreFragmentBinding
 
 class MainScore : Fragment() {
+    //View Model
+    private val viewModel: MainScoreViewModel by activityViewModels()
 
-    companion object {
-        fun newInstance() = MainScore()
-    }
-
-    private lateinit var viewModel: MainScoreViewModel
+    //Binding
+    private lateinit var _binding: MainScoreFragmentBinding
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.main_score_fragment, container, false)
+        _binding = MainScoreFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainScoreViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //Do stuff here
 
+        //Fab button
+        val fab = binding.addMain
+        fab.setOnClickListener {
+            var dialog = MainDialog()
+            dialog.show(childFragmentManager, "customDialog")
+        }
+
+
+    }
 }

@@ -42,6 +42,7 @@ class Login : Activity() {
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         // Configure Google Sign In
+        //Don't worry about this red error, at least for now
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()

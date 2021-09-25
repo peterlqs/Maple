@@ -56,5 +56,4 @@
             android:src="@drawable/ic_baseline_check_24"
             app:layout_anchor="@id/bottomAppBar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

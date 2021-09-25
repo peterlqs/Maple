@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/mainSetting"
-        android:name="com.example.maple.ui.setting.mainSetting"
+        android:name="com.example.maple.ui.setting.MainSetting"
         android:label="fragment_main_setting"
-        tools:layout="@layout/fragment_main_setting" />
+        tools:layout="@layout/main_setting_fragment" />
     <fragment
         android:id="@+id/mainScore"
         android:name="com.example.maple.ui.score.MainScore"

@@ -62,7 +62,7 @@ dependencies {
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
     //Chart stuff
-    //implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+//    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     //Confetti
     implementation 'nl.dionsegijn:konfetti:1.3.2'
     implementation platform('com.google.firebase:firebase-bom:28.2.1')
