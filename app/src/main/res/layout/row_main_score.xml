@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/subject"
+    android:layout_width="140dp"
+    android:layout_height="100dp"
+    android:layout_margin="15dp"
+    android:backgroundTint="@color/white"
+    android:padding="7dp"
+    android:text="Ngữ văn\n5"
+    android:textAlignment="center"
+    android:textColor="@color/palette4"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    app:cornerRadius="30dp" />
+
