@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_lower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đăng nhập"
@@ -34,10 +34,10 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signInBtn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:backgroundTint="@android:color/transparent"
         android:backgroundTintMode="src_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_search"
         android:gravity="center_vertical"
         android:text="Đăng nhập Google"
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_lower"
         app:layout_constraintVertical_bias="0.152" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

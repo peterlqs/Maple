@@ -14,5 +14,12 @@ class ScoreViewModel : ViewModel() {
         _subjectData.value = subjectData
     }
 
+    //Selected subject in recycler view
+    private val _workingSubject = MutableLiveData<String>()
+    val workingSubject: LiveData<String> = _workingSubject
+    fun setWorkingSubject(subject: String) {
+        _workingSubject.value = subject
+    }
+
 
 }

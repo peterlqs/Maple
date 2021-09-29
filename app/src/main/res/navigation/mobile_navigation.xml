@@ -14,7 +14,11 @@
         android:id="@+id/mainScore"
         android:name="com.example.maple.ui.score.MainScore"
         android:label="main_score_fragment"
-        tools:layout="@layout/main_score_fragment" />
+        tools:layout="@layout/main_score_fragment">
+        <action
+            android:id="@+id/action_mainScore_to_secondScore"
+            app:destination="@id/secondScore" />
+    </fragment>
     <fragment
         android:id="@+id/mainMic"
         android:name="com.example.maple.ui.mic.MainMic"
@@ -35,5 +39,14 @@
         android:name="com.example.maple.Login"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/secondScore"
+        android:name="com.example.maple.ui.score.SecondScore"
+        android:label="second_score_fragment"
+        tools:layout="@layout/second_score_fragment">
+        <action
+            android:id="@+id/action_secondScore_to_mainScore"
+            app:destination="@id/mainScore" />
+    </fragment>
 
 </navigation>

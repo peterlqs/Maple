@@ -1,7 +1,5 @@
 package com.example.maple.ui.score
 
-import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -9,10 +7,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.maple.R
 import com.example.maple.data.SubjectData
@@ -49,9 +45,11 @@ class MainDialog : DialogFragment() {
         //Submit btn
         val submitBtn = rootView.findViewById<MaterialButton>(R.id.btnSubmit)
         submitBtn.setOnClickListener {
-            //If input is correct
+            //If input is correct add to firebase then clear the input so user can type another one
+            //Will not close keyboard in case user want to write many subjects at once
             if (subject.text.toString().trim().isNotBlank()) {
                 addSubject(subject.text.toString())
+                subject.text?.clear()
             } else Toast.makeText(context, "Bạn hãy nhập lại", Toast.LENGTH_SHORT).show()
         }
         //Clear button
@@ -71,13 +69,12 @@ class MainDialog : DialogFragment() {
             "score" to 0,
             "mul" to 0
         )
-
         //Update data on firebase
         db.collection("users")
             .document(auth.currentUser?.email.toString())
             .collection("subjectScores")
             .add(subjectName).addOnSuccessListener {
-                //Add to view model
+                //Get data from viewModel, add new value then set new value to viewModel
                 val originalData = viewModel.subjectData.value
                 originalData?.add(
                     SubjectData(
@@ -98,21 +95,4 @@ class MainDialog : DialogFragment() {
                 )
             }
     }
-
-    //hide keyboard, yes we need all 3
-    private fun Fragment.hideKeyboard() {
-        view?.let { activity?.hideKeyboard(it) }
-    }
-
-    fun Activity.hideKeyboard() {
-        hideKeyboard(currentFocus ?: View(this))
-    }
-
-    private fun Context.hideKeyboard(view: View) {
-        val inputMethodManager =
-            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-    //---------------------------------------
-
 }

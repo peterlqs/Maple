@@ -5,16 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maple.R
 import com.example.maple.data.AverageSubject
+import com.example.maple.data.WhichSubject
 
 class MainScoreAdapter(
 //    val theSubject: MutableList<String>,
 //    val theScore: MutableList<Double>,
     private val subjectScore: MutableList<AverageSubject>,
+    private val listener: WhichSubject
 ) :
     RecyclerView.Adapter<MainScoreAdapter.ViewHolder>() {
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val subject: Button = itemView.findViewById(R.id.subject)
@@ -32,9 +36,8 @@ class MainScoreAdapter(
         holder.subject.text = "$currentSubject\n$currentScore"
         holder.subject.setOnClickListener {
             Log.d("adapter", currentSubject!!)
-            //listener.subjectName(currentSubject, currentScore)
-            //for some reason it gets error when firestore listener run
-            //holder.itemView.findNavController().navigate(R.id.action_monhocResult_to_monhocDiem)
+            listener.subjectName(currentSubject)
+            holder.itemView.findNavController().navigate(R.id.action_mainScore_to_secondScore)
         }
     }
 

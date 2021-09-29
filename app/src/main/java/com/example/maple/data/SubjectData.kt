@@ -12,3 +12,11 @@ data class AverageSubject(
     val sub: String? = null,
     val score: Double? = null
 )
+
+data class Diem(
+    val diem: Double, val thang: Double, val id: String
+)
+
+interface WhichSubject {
+    fun subjectName(subject: String)
+}
