@@ -4,4 +4,8 @@
     <style name="RoundedCornersDialog" parent="@style/Theme.MaterialComponents.Dialog">
         <item name="dialogCornerRadius">30dp</item>
     </style>
+    
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

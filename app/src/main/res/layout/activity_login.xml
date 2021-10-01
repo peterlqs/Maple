@@ -8,7 +8,7 @@
     tools:context=".Login">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/name_background"
         android:layout_width="230dp"
         android:layout_height="340dp"
         android:background="@drawable/rectangle"
@@ -24,11 +24,11 @@
         android:text="Đăng nhập"
         android:textColor="@color/palette4"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/name_background"
+        app:layout_constraintEnd_toEndOf="@+id/name_background"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/name_background"
+        app:layout_constraintTop_toTopOf="@+id/name_background"
         app:layout_constraintVertical_bias="0.07" />
 
     <com.google.android.material.button.MaterialButton
@@ -46,9 +46,9 @@
         app:backgroundTint="@color/palette1"
         app:cornerRadius="30dp"
         app:iconPadding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/name_background"
+        app:layout_constraintEnd_toEndOf="@+id/name_background"
+        app:layout_constraintStart_toStartOf="@+id/name_background"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.253"
         app:rippleColor="#33AAAAAA"
@@ -70,7 +70,7 @@
         android:textSize="12sp"
         app:cornerRadius="30dp"
         app:iconPadding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/name_background"
         app:layout_constraintEnd_toEndOf="@+id/signInBtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/signInBtn"
@@ -85,9 +85,9 @@
         android:layout_width="102dp"
         android:layout_height="92dp"
         android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/name_background"
+        app:layout_constraintEnd_toEndOf="@+id/name_background"
+        app:layout_constraintStart_toStartOf="@+id/name_background"
         app:layout_constraintTop_toBottomOf="@+id/txt_lower"
         app:layout_constraintVertical_bias="0.152" />
 

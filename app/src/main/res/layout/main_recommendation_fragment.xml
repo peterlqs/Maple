@@ -7,15 +7,46 @@
     android:background="@drawable/background_app"
     tools:context=".ui.recommendation.MainRecommendation">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recommendation"
+    <ImageView
+        android:id="@+id/name_background"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle"
+        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="@+id/user_avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/user_avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039"
+        app:shapeAppearanceOverlay="@style/circular" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/utm_avo_bold"
+        android:text="Your name goes here"
+        android:textColor="@color/green"
+        app:layout_constraintBottom_toBottomOf="@+id/name_background"
+        app:layout_constraintEnd_toEndOf="@+id/name_background"
+        app:layout_constraintHorizontal_bias="0.701"
+        app:layout_constraintStart_toStartOf="@+id/name_background"
+        app:layout_constraintTop_toTopOf="@+id/name_background"
+        app:layout_constraintVertical_bias="0.421" />
+
 
     <ImageView
         android:id="@+id/imageView3"
