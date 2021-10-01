@@ -19,57 +19,46 @@ class SecondScoreAdapter(
     private val mulList: MutableList<Diem>
 ) :
     RecyclerView.Adapter<SecondScoreAdapter.ViewHolder>() {
+    // Db and user
     private lateinit var auth: FirebaseAuth
     private var db = FirebaseFirestore.getInstance()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        //Get all the text view and button id
         val scoreHere: TextView = itemView.findViewById(R.id.scoreHere)
         val monthHere: TextView = itemView.findViewById(R.id.dayText)
         val remove: ImageButton = itemView.findViewById(R.id.imageButton_delete)
     }
 
+    // This part is like a requirement, dunno how to explain
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.row_second_score, parent, false)
-
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // Get current user
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-//        val currentScore = scores[position]
-//        val currentMonth = months[position]
-//        holder.scoreHere.text = currentScore.toString()
-//        holder.monthHere.text = currentMonth.toString()
+        // Set the item's score and month
         val currentScore = mulList[position].diem
         val currentMonth = mulList[position].thang
         holder.scoreHere.text = currentScore.toString()
         holder.monthHere.text = currentMonth.toInt().toString()
+        // Set remove button
         holder.remove.setOnClickListener {
             remove(user, position)
         }
-//        val currentScore = theScore[position]
-//        val currentSubject = theSubject[position]
-//        holder.subject.text = "$currentSubject : $currentScore"
-//        holder.subject.setOnClickListener {
-//            Log.d("adapter", currentSubject)
-//            listener.subjectName(currentSubject, currentScore)
-//            //for some reason it gets error when firestore listener run
-//            fireStoreListener?.remove()
-//            holder.itemView.findNavController().navigate(R.id.action_monhocResult_to_monhocDiem)
-//        }
     }
 
+    //Get the size of list so the recycler view knows how much space it needs to make
     override fun getItemCount(): Int {
         return mulList.size
     }
 
     private fun remove(user: FirebaseUser?, position: Int) {
-        Log.d("SDJLKA", mulList[position].toString())
-        Log.d("SDJLKA", mulList[position].id.toString())
-        Log.d("SDJLKA", user?.email.toString())
-
+        // Remove the score
         db.collection("users")
             .document(user?.email.toString())
             .collection("subjectScores")

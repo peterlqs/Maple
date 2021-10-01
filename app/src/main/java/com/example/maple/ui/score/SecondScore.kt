@@ -25,7 +25,6 @@ class SecondScore : Fragment() {
     //ViewModel
     private val viewModel: ScoreViewModel by activityViewModels()
 
-
     //db
     private var db = FirebaseFirestore.getInstance()
     private val auth = Firebase.auth
@@ -52,6 +51,7 @@ class SecondScore : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Load listener
         loadListener()
         //Delete subject btn
         val currentSubject = viewModel.workingSubject.value.toString()
@@ -61,14 +61,19 @@ class SecondScore : Fragment() {
         }
         //Set subject name
         binding.subjectName.text = viewModel.workingSubject.value
-        //First set dialog on click
+        //If press Fab ( Floating action button ) show the score input dialog
         binding.fabAdd.setOnClickListener {
-            //fireStoreListener2!!.remove()
             val dialog = SecondDialog()
+//            SecondDialog is the score input dialog
+            //idk what childFragmentManager is, tag is required but it can be anything
             dialog.show(childFragmentManager, "customDialog")
         }
         //Set the 3 toggle recycler view, can someone fix this DRY code
+        //If press on the rectangle open/close button then it open/close
         binding.down1.setOnClickListener {
+            //If currently open then close and vice versa
+            //Visibility to check if it's visible or not then open/close
+            //The same goes for the belows
             if (binding.recyclerView1.visibility == View.GONE) {
                 binding.recyclerView1.visibility = View.VISIBLE
             } else binding.recyclerView1.visibility = View.GONE
@@ -83,20 +88,16 @@ class SecondScore : Fragment() {
                 binding.recyclerView3.visibility = View.VISIBLE
             } else binding.recyclerView3.visibility = View.GONE
         }
-        //Delete sub
-//        binding.deleteSub.setOnClickListener{
-//            deleteSubject(viewModel.email.value.toString(),viewModel.workingSubject.value.toString(),view)
-//            view.findNavController().navigate(R.id.action_monhocDiem_to_monhocResult)
-//        }
-
-
     }
 
     private fun loadListener() {
-        //add listener, load score
+        // When click on a subject it change to this fragment, so we have to know which subject
+        // was clicked on, hence call currentSubject to know
         val currentSubject = viewModel.workingSubject.value.toString()
-        Log.d(TAG, currentSubject.toString())
 
+        // TODO detach listener when go to another fragment
+        // Attach listener means if the data change then it refresh the UI
+        // but when first attached it will load the current data into the UI
         val registration = db.collection("users")
             .document(email)
             .collection("subjectScores")
@@ -106,14 +107,17 @@ class SecondScore : Fragment() {
                     Log.w(MainScore.TAG, "listen:error", e)
                     return@addSnapshotListener
                 }
+                // 3 lists to store Score that has mul of 1 or 2 or 3
+                // I cant rly explain all the stuff below so u dun need to understand all
                 val mul1List = mutableListOf<Diem>()
                 val mul2List = mutableListOf<Diem>()
                 val mul3List = mutableListOf<Diem>()
                 val listId = mutableListOf<String>()
+
                 //Average score
                 var totalMul = 0
                 var totalScore = 0.0
-                var id = ""
+//                var id = ""
                 //List to contain scores when read from Firebase
                 val listData = mutableListOf<SubjectData>()
                 //Scan through each document in Firebase data
@@ -126,8 +130,10 @@ class SecondScore : Fragment() {
                         listId.add(doc.id)
                     }
                 }
+                // The count is to get the id cuz i forgot to include it in the Diem object
                 var count = 0
                 for (doc in listData) {
+                    //If not current subject and not month 0
                     if (doc.sub != currentSubject || doc.month
                             ?.toInt() == 0
                     ) continue
@@ -137,20 +143,21 @@ class SecondScore : Fragment() {
                     val currentScore = doc.score
                     val currentMonth = doc.month?.toDouble()
                     val currentID = listId[count].trim()
+                    //Null check basically
                     if (currentScore != null && currentMonth != null && currentMul != null) {
+                        // Calculate score normally
                         totalMul += currentMul
                         totalScore += currentScore * currentMul
+
+                        //If mul 1 then build recycler view 1 if 2 then build...
                         when (currentMul) {
                             1 -> {
-                                //                                mul1List.put(currentScore, currentMonth)
                                 mul1List.add(Diem(currentScore, currentMonth, currentID))
                             }
                             2 -> {
-                                //                                mul2List.put(currentScore, currentMonth)
                                 mul2List.add(Diem(currentScore, currentMonth, currentID))
                             }
                             else -> {
-                                //                                mul3List.put(currentScore, currentMonth)
                                 mul3List.add(Diem(currentScore, currentMonth, currentID))
                             }
                         }
@@ -164,35 +171,34 @@ class SecondScore : Fragment() {
                 //replace nan with 0
                 if (finalScore.isNaN()) binding.DTB.text = "0"
                 Log.e("error", finalScore.toString())
-
-//                Log.d("dsad",mul1List.toString())
-//                Log.d("dsad",mul2List.toString())
-//                Log.d("dsad",mul3List.toString())
                 //Create 3 different recyclerView
                 buildRecyclerView(mul1List, 1)
                 buildRecyclerView(mul2List, 2)
                 buildRecyclerView(mul3List, 3)
-
             }
     }
 
+    //Delete subject
     private fun deleteSubject(email: String, currentSub: String) {
+        //Get current subject data
         var subjectData = viewModel.subjectData.value
+        //The below line is to remove all the score that match the subject in viewModel ( local data )
         subjectData = subjectData!!.filter { it.sub != currentSub }.toMutableList()
+        // Once done filter set the data in viewModel
         viewModel.setSubjectData(subjectData)
-        Log.d("sadf", viewModel.subjectData.value.toString())
-
+        //Delete on Firebase
         db.collection("users/")
             .document(email)
             .collection("subjectScores")
             .addSnapshotListener(EventListener { documentSnapshots, e ->
+                //Null check
                 if (e != null) {
                     Log.e("TAG", "Listen failed", e)
                     return@EventListener
                 }
                 if (documentSnapshots != null) {
+                    // Scan every document if match subject then delete
                     for (i in documentSnapshots) {
-                        Log.e("h", i.getString("sub").toString())
                         if (i.getString("sub").toString() == currentSub) {
                             Log.e("h", i.data.values.toString())
                             db.collection("users/")
@@ -213,18 +219,14 @@ class SecondScore : Fragment() {
                                         e
                                     )
                                 }
-
                         }
                     }
-
                 }
-
             })
-
     }
 
+    //Make recycler views all 3 of them mul 1,2,3
     private fun buildRecyclerView(
-//        mulList: MutableMap<Double, Double>,
         mulList: MutableList<Diem>,
         i: Int
     ) {
@@ -234,10 +236,15 @@ class SecondScore : Fragment() {
             scores.add(key)
             months.add(value.toInt())
         }
+        //I to decide to build for mul 1 2 or 3
+        //when is like if, if 1 or 2 or 3
         when (i) {
             1 -> {
                 binding.recyclerView1.apply {
+                    //layoutManager to decide how the items spread, in this case in spread linearly
                     layoutManager = LinearLayoutManager(activity)
+                    //Every recycler view need an adapter, this adapter will need mulList
+                    // TODO remove redundant scores and months
                     adapter = SecondScoreAdapter(scores, months, mulList)
                 }
             }
