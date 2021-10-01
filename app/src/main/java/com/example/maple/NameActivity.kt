@@ -32,7 +32,7 @@ class NameActivity : Activity() {
         val name = binding.editTextName
         // Check if name exists
         val btnSubmit = binding.btnConfirm
-        // When click on btn check if name exist otherwise move to main
+        // When click on button check if name exist otherwise move to main
         btnSubmit.setOnClickListener {
             db.collection("users").get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {

@@ -31,18 +31,18 @@ class MainDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val rootView: View = inflater.inflate(R.layout.main_dialog_fragment, container, false)
         //Set initial bg invisible
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         //The text view
         val subject = rootView.findViewById<TextInputEditText>(R.id.editText)
-        //Cancel btn
+        //Cancel button
         val cancelButton = rootView.findViewById<FloatingActionButton>(R.id.fabDelete)
         cancelButton.setOnClickListener {
             dismiss()
         }
-        //Submit btn
+        //Submit button
         val submitBtn = rootView.findViewById<MaterialButton>(R.id.btnSubmit)
         submitBtn.setOnClickListener {
             //If input is correct add to firebase then clear the input so user can type another one

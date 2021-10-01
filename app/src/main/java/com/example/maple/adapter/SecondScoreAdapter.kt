@@ -30,13 +30,14 @@ class SecondScoreAdapter(
         val remove: ImageButton = itemView.findViewById(R.id.imageButton_delete)
     }
 
-    // This part is like a requirement, dunno how to explain
+    // Row layout initializing
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.row_second_score, parent, false)
         return ViewHolder(view)
     }
 
+    //    this is where binding gets in hand
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Get current user
         auth = FirebaseAuth.getInstance()
