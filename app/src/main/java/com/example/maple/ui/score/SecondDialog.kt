@@ -44,6 +44,17 @@ class SecondDialog : DialogFragment() {
         cancelButton.setOnClickListener {
             dismiss()
         }
+        //Clear button
+        val clearButton = rootView.findViewById<Button>(R.id.btnDelete)
+        clearButton.setOnClickListener {
+            //Clear the text input fields
+            val score = rootView.findViewById<EditText>(R.id.editText2)
+            val mul = rootView.findViewById<EditText>(R.id.editText3)
+            val month = rootView.findViewById<EditText>(R.id.editText4)
+            score.text.clear()
+            mul.text.clear()
+            month.text.clear()
+        }
         //Submit btn
         val submitButton = rootView.findViewById<Button>(R.id.btnSubmit)
         submitButton.setOnClickListener {
