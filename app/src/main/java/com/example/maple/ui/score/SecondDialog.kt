@@ -44,6 +44,7 @@ class SecondDialog : DialogFragment() {
         cancelButton.setOnClickListener {
             dismiss()
         }
+        //Submit btn
         val submitButton = rootView.findViewById<Button>(R.id.btnSubmit)
         submitButton.setOnClickListener {
             //The input info
@@ -51,6 +52,7 @@ class SecondDialog : DialogFragment() {
             val mul = rootView.findViewById<EditText>(R.id.editText3).text.toString()//.toInt()
             val month = rootView.findViewById<EditText>(R.id.editText4).text.toString()//.toInt()
 
+            //Empty check and month check
             if (score.toString().trim().isNotEmpty() && month.toString().trim().isNotEmpty()
                 && mul.toString().isNotEmpty() && month.toInt() < 13 && month.toInt() > 0
             ) {
@@ -62,9 +64,10 @@ class SecondDialog : DialogFragment() {
                     viewModel.workingSubject,
                 )
                 Toast.makeText(context, "Thành công", Toast.LENGTH_SHORT).show()
-                //dismiss()
-            } else if (month.toInt() > 12 || month.toInt() == 0) {
+            } else if (month.toInt() > 12 || month.toInt() < 1) {
                 Toast.makeText(context, "Bạn cần  tháng từ 1 tới 12", Toast.LENGTH_SHORT).show()
+            } else if (mul.toInt() < 1 || mul.toInt() > 3) {
+                Toast.makeText(context, "Bạn cần hệ số từ 1 đến 3", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Bạn nhập thiếu", Toast.LENGTH_SHORT).show()
             }
@@ -72,17 +75,22 @@ class SecondDialog : DialogFragment() {
         return rootView
     }
 
+    //Push data to Firebase
     private fun updateData(
         score: Double,
         month: Int,
         selectedChipValue: Int,
         workingSubject: LiveData<String>,
     ) {
+        //Set document id to time so first of all get the time
         var timeSet = "$month ${getCurrentDateTime().toString("yyyyMMdd HH:mm:ss")}"
 
+        // If month is lower then 10 then add 0
         if (month < 10) {
             timeSet = "0${month} ${getCurrentDateTime().toString("yyyyMMdd HH:mm:ss")}"
         }
+
+        //Add new data to viewModel
         val subjectData = viewModel.subjectData.value
         subjectData!!.add(
             SubjectData(
@@ -94,6 +102,7 @@ class SecondDialog : DialogFragment() {
         )
         viewModel.setSubjectData(subjectData)
 
+        // Add data to Firebase, you can set Object to firebase btw
         db.collection("users")
             .document(email)
             .collection("subjectScores")

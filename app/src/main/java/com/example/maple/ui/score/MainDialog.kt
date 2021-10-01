@@ -47,7 +47,10 @@ class MainDialog : DialogFragment() {
         submitBtn.setOnClickListener {
             //If input is correct add to firebase then clear the input so user can type another one
             //Will not close keyboard in case user want to write many subjects at once
-            if (subject.text.toString().trim().isNotBlank()) {
+            // This if check if not blank and length < 13
+            if (subject.text.toString().trim()
+                    .isNotBlank() && subject.text.toString().length < 13
+            ) {
                 addSubject(subject.text.toString())
                 subject.text?.clear()
             } else Toast.makeText(context, "Bạn hãy nhập lại", Toast.LENGTH_SHORT).show()
