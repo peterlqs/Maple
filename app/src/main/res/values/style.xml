@@ -8,4 +8,30 @@
     <style name="circular">
         <item name="cornerSize">50%</item>
     </style>
+
+<!--    Style of recyclerView in main menu-->
+    <style name="RecyclerBackground">
+        <item name="color">@color/white</item>
+        <item name="alpha">0.5</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedCornersDialog</item>
+    </style>
+    <style name="SubjectStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/utm_cookies</item>
+        <item name="android:textSize">35dp</item>
+    </style>
+    <style name="AttentionDialog">
+        <item name="cornerSize">20%</item>
+        <item name="color">@color/black</item>
+    </style>
+
+    <style name="FabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end|bottom</item>
+        <item name="srcCompat">@drawable/ic_camera</item>
+        <item name="backgroundTint">@color/gray</item>
+        <item name="tint">@color/white</item>
+        <item name="useCompatPadding">true</item>
+    </style>
 </resources>
