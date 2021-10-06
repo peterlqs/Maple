@@ -97,13 +97,19 @@ class MainMic : Fragment() {
         binding.editTextChat.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 val message = binding.editTextChat.text.toString().replace("\n", "")
-                sendText(message)
+                if (message != "") sendText(message)
             }
             // If not enter then do nothing
             false
         })
 
-        //Mic
+        // Submit button
+        binding.imageButton.setOnClickListener {
+            val message = binding.editTextChat.text.toString().replace("\n", "")
+            if (message != "") sendText(message)
+        }
+
+        //Mic ( CURRENTY NOT WORKING )
         binding.btnMic.setOnClickListener {
             getSpeechInput()
             // For some reason after speech recognition it shows keyboard, so hide it
