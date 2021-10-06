@@ -29,7 +29,7 @@ fun hideKeyboard(view: View) {
     }
 }
 
-//Get time
+//Get current time
 fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
     val formatter = SimpleDateFormat(format, locale)
     return formatter.format(this)

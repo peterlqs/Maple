@@ -25,7 +25,7 @@ class MainScore : Fragment(), WhichSubject {
     //db
     private var db = FirebaseFirestore.getInstance()
     private val auth = Firebase.auth
-    private val email = auth.currentUser?.email.toString()
+    private val email = auth.currentUser?.uid.toString()
 
     //Binding
     private lateinit var _binding: MainScoreFragmentBinding

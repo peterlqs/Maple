@@ -17,6 +17,7 @@ data class Diem(
     val diem: Double, val thang: Double, val id: String
 )
 
+
 interface WhichSubject {
     fun subjectName(subject: String)
 }

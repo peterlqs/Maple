@@ -28,7 +28,7 @@ class SecondScore : Fragment() {
     //db
     private var db = FirebaseFirestore.getInstance()
     private val auth = Firebase.auth
-    private val email = auth.currentUser?.email.toString()
+    private val uid = auth.currentUser?.uid.toString()
 
     //Binding
     private lateinit var _binding: SecondScoreFragmentBinding
@@ -48,7 +48,6 @@ class SecondScore : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Load listener
@@ -57,7 +56,7 @@ class SecondScore : Fragment() {
         val currentSubject = viewModel.workingSubject.value.toString()
         val btnDelete = binding.btnDelete
         btnDelete.setOnClickListener {
-            deleteSubject(email, currentSubject)
+            deleteSubject(uid, currentSubject)
         }
         //Set subject name
         binding.subjectName.text = viewModel.workingSubject.value
@@ -99,7 +98,7 @@ class SecondScore : Fragment() {
         // Attach listener means if the data change then it refresh the UI
         // but when first attached it will load the current data into the UI
         val registration = db.collection("users")
-            .document(email)
+            .document(uid)
             .collection("subjectScores")
             .addSnapshotListener { value, e ->
                 //Error handling
@@ -179,7 +178,7 @@ class SecondScore : Fragment() {
     }
 
     //Delete subject
-    private fun deleteSubject(email: String, currentSub: String) {
+    private fun deleteSubject(uid: String, currentSub: String) {
         //Get current subject data
         var subjectData = viewModel.subjectData.value
         //The below line is to remove all the score that match the subject in viewModel ( local data )
@@ -188,7 +187,7 @@ class SecondScore : Fragment() {
         viewModel.setSubjectData(subjectData)
         //Delete on Firebase
         db.collection("users/")
-            .document(email)
+            .document(uid)
             .collection("subjectScores")
             .addSnapshotListener(EventListener { documentSnapshots, e ->
                 //Null check
@@ -202,7 +201,7 @@ class SecondScore : Fragment() {
                         if (i.getString("sub").toString() == currentSub) {
                             Log.e("h", i.data.values.toString())
                             db.collection("users/")
-                                .document(email)
+                                .document(uid)
                                 .collection("subjectScores")
                                 .document(i.id)
                                 .delete()

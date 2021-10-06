@@ -24,7 +24,7 @@
         android:id="@+id/userAva"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@mipmap/user_avatar"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.234"
@@ -39,14 +39,16 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/utm_avo_bold"
         android:text="Your name goes here"
-        android:textColor="@color/green"
+        android:textColor="@color/palette4"
         app:layout_constraintBottom_toBottomOf="@+id/name_background"
         app:layout_constraintEnd_toEndOf="@+id/name_background"
         app:layout_constraintHorizontal_bias="0.701"
         app:layout_constraintStart_toStartOf="@+id/name_background"
         app:layout_constraintTop_toTopOf="@+id/name_background"
         app:layout_constraintVertical_bias="0.421" />
-
+    <!--        không nên sử dụng bias nha hoặc di chuyển view thủ công nha, vì bias nó sẽ ko thích hợp cho multiple device -->
+    <!--        Có thể thay thế bằng margin và liên kết các view với nhau bằng id để hạn
+                đè lên view kia và phù hợp với multiple device-->
 
     <ImageView
         android:id="@+id/imageView3"

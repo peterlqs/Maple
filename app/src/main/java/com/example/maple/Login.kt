@@ -21,12 +21,14 @@ import java.util.*
 
 class Login : Activity() {
     private var _binding: ActivityLoginBinding? = null
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
+
     //Stuff for sign in with google.
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+
     // Initialize cloud firestore...
-    val db:FirebaseFirestore= FirebaseFirestore.getInstance()
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     //Constants
     private companion object {
         private const val RC_SIGN_IN = 100
@@ -49,9 +51,23 @@ class Login : Activity() {
         updateUI(currentUser)
         //sign in before ?
         if (auth.currentUser != null) {
-            //Go to main activity
-            startActivity(Intent(this@Login, MainActivity::class.java))
-            finish()
+            //Check if has name
+            db.collection("users")
+                .document(auth.currentUser!!.uid.toString())
+                .get().addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val name = task.result.getString("name")
+                        //If no name then to name activity
+                        if (name.isNullOrEmpty()) {
+                            startActivity(Intent(this@Login, NameActivity::class.java))
+                            finish()
+                        } else {
+                            //Go to main activity
+                            startActivity(Intent(this@Login, MainActivity::class.java))
+                            finish()
+                        }
+                    }
+                }
         }
         //Set sign in button ( google sign in )
         binding.signInBtn.setOnClickListener {
