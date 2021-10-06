@@ -16,12 +16,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.356"
-        app:layout_constraintStart_toStartOf="@+id/user_avatar"
+        app:layout_constraintStart_toStartOf="@+id/userAva"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.066" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/user_avatar"
+        android:id="@+id/userAva"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:src="@mipmap/user_avatar"
@@ -56,5 +56,41 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/mhoc_luu_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="Môn cần lưu ý: "
+        android:fontFamily="@font/utm_avo_bold"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/userAva"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddAva"
+        style="@style/FabStyle"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        android:onClick="pickProfileImage"
+        app:fabSize="mini"
+        app:layout_constraintStart_toStartOf="@+id/userAva"
+        app:layout_constraintTop_toTopOf="@+id/userAva" />
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="528dp"-->
+
+<!--        app:layoutManager="LinearLayoutManager"-->
+<!--        android:scrollbars="vertical"-->
+
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView3"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/mhoc_luu_y" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
