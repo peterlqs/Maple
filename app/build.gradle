@@ -70,4 +70,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-modeldownloader-ktx'
     implementation 'org.tensorflow:tensorflow-lite:2.3.0'
     implementation 'com.karumi:dexter:6.2.2'
+    //Real time db
+    implementation 'com.google.firebase:firebase-database-ktx'
 }
