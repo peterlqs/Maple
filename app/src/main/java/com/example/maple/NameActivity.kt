@@ -10,15 +10,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class NameActivity : Activity() {
-    //Binding
+    // Binding
     private var _binding: ActivityNameBinding? = null
     private val binding get() = _binding!!
 
-    //db
+    // Db
     private var db = FirebaseFirestore.getInstance()
     private val auth = Firebase.auth
     private val uid = auth.currentUser?.uid.toString()
 
+    // For debug, TAG to know which fragment ur currently in
     private companion object {
         private const val TAG = "NameActivity"
     }

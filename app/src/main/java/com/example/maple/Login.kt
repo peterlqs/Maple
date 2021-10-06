@@ -18,42 +18,46 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
+// When done fix default_web_client_id
+// Also find a way to remove updateUI() since it doens't do anything
 
 class Login : Activity() {
+    // Binding
     private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
 
-    //Stuff for sign in with google.
+    // Stuff for sign in with google.
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
 
     // Initialize cloud firestore...
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    //Constants
+
+    // Constants and debug
     private companion object {
         private const val RC_SIGN_IN = 100
         private const val TAG = "GOOGLE_SIGN_IN_TAG"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        // Get current user
+        auth = Firebase.auth
+        val currentUser = auth.currentUser
         // Configure Google Sign In
-        //Don't worry about this red error, at least for now
+        // Don't worry about this red error, at least for now
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-        // Initialize Firebase Auth
-        auth = Firebase.auth
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
+
+
         //sign in before ?
         if (auth.currentUser != null) {
             //Check if has name
             db.collection("users")
-                .document(auth.currentUser!!.uid.toString())
+                .document(auth.currentUser!!.uid)
                 .get().addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val name = task.result.getString("name")
@@ -68,32 +72,42 @@ class Login : Activity() {
                         }
                     }
                 }
-        }
-        //Set sign in button ( google sign in )
-        binding.signInBtn.setOnClickListener {
-            Log.d(TAG, "OnCreate, ggl sign in")
-            val intent = googleSignInClient.signInIntent
-            startActivityForResult(intent, RC_SIGN_IN)
-        }
-        //Anonymous sign in
-        binding.signInBtn2.setOnClickListener {
-            auth.signInAnonymously()
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInAnonymously:success")
-                        val user = auth.currentUser
-                        updateUI(user)
-                        startActivity(Intent(this@Login, MainActivity::class.java))
-                        finish()
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInAnonymously:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
-                        updateUI(null)
+        } else {
+            // If hasnt sign in before then inflate layout
+            _binding = ActivityLoginBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+            // Dont worry about below line for now
+            updateUI(currentUser)
+
+            // Set sign in button ( google sign in )
+            binding.signInBtn.setOnClickListener {
+                Log.d(TAG, "OnCreate, ggl sign in")
+                val intent = googleSignInClient.signInIntent
+                startActivityForResult(intent, RC_SIGN_IN)
+            }
+            // Anonymous sign in
+            binding.signInBtn2.setOnClickListener {
+                auth.signInAnonymously()
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInAnonymously:success")
+                            val user = auth.currentUser
+                            updateUI(user)
+                            startActivity(Intent(this@Login, MainActivity::class.java))
+                            finish()
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInAnonymously:failure", task.exception)
+                            Toast.makeText(
+                                baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            updateUI(null)
+                        }
                     }
-                }
+            }
         }
     }
     // [START on_start_check_user]
@@ -157,7 +171,9 @@ class Login : Activity() {
     }
     // [END signin]
 
+    // Idk what this is
     private fun updateUI(user: FirebaseUser?) {
 
     }
+
 }

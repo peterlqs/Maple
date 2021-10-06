@@ -73,3 +73,5 @@ dependencies {
     //Real time db
     implementation 'com.google.firebase:firebase-database-ktx'
 }
+
+apply plugin: 'com.google.gms.google-services'
