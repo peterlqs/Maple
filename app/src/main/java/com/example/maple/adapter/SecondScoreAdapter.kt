@@ -47,7 +47,7 @@ class SecondScoreAdapter(
         val currentMonth = mulList[position].thang
         holder.scoreHere.text = currentScore.toString()
         holder.monthHere.text = currentMonth.toInt().toString()
-        // Set remove button
+        // Set remove button, remove function below
         holder.remove.setOnClickListener {
             remove(user, position)
         }
@@ -61,7 +61,7 @@ class SecondScoreAdapter(
     private fun remove(user: FirebaseUser?, position: Int) {
         // Remove the score
         db.collection("users")
-            .document(user?.email.toString())
+            .document(user?.uid.toString())
             .collection("subjectScores")
             .document(mulList[position].id)
             .delete()

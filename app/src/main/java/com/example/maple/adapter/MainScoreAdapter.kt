@@ -15,6 +15,7 @@ class MainScoreAdapter(
 //    val theSubject: MutableList<String>,
 //    val theScore: MutableList<Double>,
     private val subjectScore: MutableList<AverageSubject>,
+    // The listener here is like an interface to communicate between recycler and fragment
     private val listener: WhichSubject
 ) :
     RecyclerView.Adapter<MainScoreAdapter.ViewHolder>() {

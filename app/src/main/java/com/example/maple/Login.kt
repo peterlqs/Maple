@@ -53,7 +53,7 @@ class Login : Activity() {
         if (auth.currentUser != null) {
             //Check if has name
             db.collection("users")
-                .document(auth.currentUser!!.email.toString())
+                .document(auth.currentUser!!.uid.toString())
                 .get().addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val name = task.result.getString("name")

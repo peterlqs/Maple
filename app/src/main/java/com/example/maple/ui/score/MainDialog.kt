@@ -74,7 +74,7 @@ class MainDialog : DialogFragment() {
         )
         //Update data on firebase
         db.collection("users")
-            .document(auth.currentUser?.email.toString())
+            .document(auth.currentUser?.uid.toString())
             .collection("subjectScores")
             .add(subjectName).addOnSuccessListener {
                 //Get data from viewModel, add new value then set new value to viewModel

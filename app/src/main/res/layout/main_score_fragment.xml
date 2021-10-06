@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="12dp"
         android:layout_marginTop="6dp"
-        android:text="Bạn không có môn nào điẻm thấp"
+        android:text="Bạn không có môn nào điểm thấp"
         android:textColor="@color/palette4"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/name_background"
@@ -70,5 +70,5 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_background"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.277" />
 </androidx.constraintlayout.widget.ConstraintLayout>

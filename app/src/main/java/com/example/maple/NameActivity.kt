@@ -17,7 +17,7 @@ class NameActivity : Activity() {
     //db
     private var db = FirebaseFirestore.getInstance()
     private val auth = Firebase.auth
-    private val email = auth.currentUser?.email.toString()
+    private val uid = auth.currentUser?.uid.toString()
 
     private companion object {
         private const val TAG = "NameActivity"
@@ -47,8 +47,8 @@ class NameActivity : Activity() {
                         name.hint = "Tên đã có"
                     } else {
                         Log.d("name test", name.text.toString())
-                        Log.d("email null?", email)
-                        db.collection("users").document(email)
+                        Log.d("email null?", uid)
+                        db.collection("users").document(uid)
                             .set(hashMapOf("name" to name.text.toString()))
                             .addOnSuccessListener {
                                 Log.d("Something", "DocumentSnapshot successfully written!")

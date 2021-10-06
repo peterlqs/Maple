@@ -42,7 +42,9 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_setting_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_main_score.xml" value="0.3171171171171171" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_receive.xml" value="0.3171171171171171" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_second_score.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_send.xml" value="0.3171171171171171" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/second_score_fragment.xml" value="0.1547933157431838" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
       </map>
     </option>
