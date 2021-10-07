@@ -66,6 +66,7 @@ class SecondScoreAdapter(
             .document(mulList[position].id)
             .delete()
             .addOnCompleteListener {
+                // Remove from recycler view
                 mulList.removeAt(position)
                 notifyItemRemoved(position)
                 notifyItemChanged(position, itemCount)

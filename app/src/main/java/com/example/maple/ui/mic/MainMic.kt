@@ -26,21 +26,23 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class MainMic : Fragment() {
-    //Db
+    // Db and user
     private val ref = FirebaseDatabase.getInstance().reference
-    val user = FirebaseAuth.getInstance().currentUser?.uid
+    private val user = FirebaseAuth.getInstance().currentUser?.uid
 
 
-    //Binding
+    // Binding
     private lateinit var _binding: MainMicFragmentBinding
     private val binding get() = _binding
 
+    // Set TAG to easily recognize which fragment when debug
     companion object {
         const val TAG = "MainMic"
         private const val REQUEST_CODE_STT = 1
 
     }
 
+    // Inflate
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,64 +54,75 @@ class MainMic : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // A list to contain all Message object ( the messeage, user ( the user or bot ) )
         val messageList = ArrayList<Message>()
+        // Adapter for recycler view .let is like MessageAdapter(context, messageList) with null proof
         val messageAdapter = context?.let { MessageAdapter(it, messageList) }
 
+        // Set up recycler view
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = messageAdapter
-        // Scroll to bottom of recycler view
+
+        // Scroll to bottom of recycler view by scroll to element of list's size -1 ( last element )
         messageAdapter?.itemCount?.minus(1)?.let { binding.recyclerView.scrollToPosition(it) }
 
-        //Recycler
+        // Firebase listener
         ref.child("chats").child(user!!).child("messages")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
+                    // Clear messageList otherwise it would get duplicated
                     messageList.clear()
 
+                    // For each message, add to messageList
                     for (postSnapshot in snapshot.children) {
                         val message = postSnapshot.getValue(Message::class.java)
                         messageList.add(message!!)
                     }
-                    // Scroll to bottom
+
+                    // Scroll to bottom like Messenger ( explanation above )
                     binding.recyclerView.scrollToPosition(messageList.size - 1)
 
-                    // Tell recycler view to change
+                    // Tell recycler view to change, can you remove the warning pls
                     messageAdapter?.notifyDataSetChanged()
                 }
 
+                // Catch error
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+                    Log.d(TAG, "Failed to get data from Firebase")
                 }
-
             })
+
         // Recycler view scroll to bottom even when layout change ( keyboard show up when input )
         // i8 is old bottom position, i4 is current bottom position
         binding.recyclerView.addOnLayoutChangeListener { _, _, _, _, i4, _, _, _, i8 ->
-            run {
-                if (i4 < i8) {
-                    binding.recyclerView.scrollBy(0, i8 - i4)
-                }
+            if (i4 < i8) {
+                binding.recyclerView.scrollBy(0, i8 - i4)
             }
         }
 
-        // When hit enter button
-        binding.editTextChat.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+        // When hit enter button, setOnKeyListener is like onClickListener but for key
+        binding.editTextChat.setOnKeyListener { _, keyCode, event ->
+            // If the key is enter AND user press on the enter key
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                // When enter it create an extra \n so remove that
                 val message = binding.editTextChat.text.toString().replace("\n", "")
+                // If message not blank then send to Firebase
                 if (message != "") sendText(message)
             }
             // If not enter then do nothing
             false
-        })
+        }
 
         // Submit button
         binding.imageButton.setOnClickListener {
+            // Remove \n just in case
             val message = binding.editTextChat.text.toString().replace("\n", "")
+            // If message not blank then send to Firebase
             if (message != "") sendText(message)
         }
 
-        //Mic ( CURRENTY NOT WORKING )
+        //Mic ( CURRENTLY NOT WORKING )
         binding.btnMic.setOnClickListener {
             getSpeechInput()
             // For some reason after speech recognition it shows keyboard, so hide it
@@ -119,16 +132,20 @@ class MainMic : Fragment() {
 
     }
 
+    // Send message to Firebase
     private fun sendText(text: String) {
+        // Turn message into an object ( asign user(uid) to know if it's bot or user )
         val messageObject = Message(text, user)
 
+        // This is realtime db not Firestore cuz realtime doesn't charge on read but on the amount of storage ( kb,mb,... )
         ref.child("chats").child(user!!).child("messages").push()
             .setValue(messageObject).addOnSuccessListener {
+                // Clear text input
                 binding.editTextChat.setText("")
                 Log.d(TAG, "Success add to realtime")
             }
 
-        //Demo bot
+        //Demo bot, current it just say hi im a bot
         val botObject = Message("Hi im a bot", "bot")
         ref.child("chats").child(user).child("messages").push()
             .setValue(botObject).addOnSuccessListener {
@@ -136,6 +153,10 @@ class MainMic : Fragment() {
                 Log.d(TAG, "Success add to realtime BOT")
             }
     }
+
+    //------------------------
+    // IGNORE ALL CODES BELOW
+    //------------------------
 
     private fun getSpeechInput() {
         val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)

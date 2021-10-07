@@ -58,6 +58,7 @@ class MainDialog : DialogFragment() {
         //Clear button
         val clearBtn = rootView.findViewById<MaterialButton>(R.id.btnDelete)
         clearBtn.setOnClickListener {
+            // Clear the text input
             subject.text?.clear()
         }
         return rootView
