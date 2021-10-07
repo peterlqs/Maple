@@ -45,4 +45,21 @@ class MainRecommendation : Fragment() {
         }
     }
 
+    //Creating cardview for recommendation
+    class Song {
+        private var sName: String? = null
+
+        constructor() {}
+        constructor(name: String?) {
+            sName = name
+        }
+
+        fun getName(): String? {
+            return sName
+        }
+        fun setCode(name: String?) {
+            sName = name
+        }
+    }
+
 }

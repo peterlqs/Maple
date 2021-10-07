@@ -83,24 +83,13 @@
         app:layout_constraintStart_toStartOf="@+id/userAva"
         app:layout_constraintTop_toTopOf="@+id/userAva" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="222dp"
-        tools:src="@tools:sample/backgrounds/scenic" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="409dp"
+        android:layout_height="528dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mhoc_luu_y" />
 
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="528dp"-->
-
-<!--        app:layoutManager="LinearLayoutManager"-->
-<!--        android:scrollbars="vertical"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView3"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/mhoc_luu_y" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
