@@ -17,7 +17,7 @@
     </style>
     <style name="SubjectStyle">
         <item name="android:textColor">@color/black</item>
-        <item name="fontFamily">@font/utm_cookies</item>
+        <item name="fontFamily">@font/sanelma</item>
         <item name="android:textSize">35dp</item>
     </style>
     <style name="AttentionDialog">
