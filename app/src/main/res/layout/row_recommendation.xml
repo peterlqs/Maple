@@ -7,7 +7,7 @@
     android:layout_marginBottom="3dp"
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
-    card_view:cardCornerRadius="8dp"
+    card_view:cardCornerRadius="20dp"
     card_view:cardElevation="8dp">
 
     <TextView
@@ -16,6 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Toán" />
+        android:text="Toán"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:ellipsize="end"/>
 
 </androidx.cardview.widget.CardView>
