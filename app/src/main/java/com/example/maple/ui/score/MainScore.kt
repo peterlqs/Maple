@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.maple.R
 import com.example.maple.adapter.MainScoreAdapter
 import com.example.maple.data.AverageSubject
 import com.example.maple.data.SubjectData
@@ -152,6 +154,10 @@ class MainScore : Fragment(), WhichSubject {
                     adapter = MainScoreAdapter(scoreSubject, this@MainScore)
                 }
             }
+        // TODO DEV REMOVE LATER
+        binding.button2.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainExperiment)
+        }
 
 
     }

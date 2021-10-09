@@ -18,16 +18,15 @@
         <action
             android:id="@+id/action_mainScore_to_secondScore"
             app:destination="@id/secondScore" />
+        <action
+            android:id="@+id/action_mainScore_to_mainExperiment"
+            app:destination="@id/mainExperiment" />
     </fragment>
     <fragment
         android:id="@+id/mainMic"
         android:name="com.example.maple.ui.mic.MainMic"
         android:label="main_mic_fragment"
-        tools:layout="@layout/main_mic_fragment">
-        <action
-            android:id="@+id/action_mainMic_to_mainExperiment"
-            app:destination="@id/mainExperiment" />
-    </fragment>
+        tools:layout="@layout/main_mic_fragment" />
     <fragment
         android:id="@+id/mainNotification"
         android:name="com.example.maple.ui.notification.MainNotification"
