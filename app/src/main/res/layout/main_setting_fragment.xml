@@ -33,6 +33,7 @@
         app:maxImageSize="30dp" />
 
     <TextView
+        android:id="@+id/userNameSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TitleUserName"
@@ -40,5 +41,24 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/fabAddAvaSetting"
         android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/userInformationSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Thông tin của bạn"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/userNameSetting" />
+
+    <ImageView
+        android:id="@+id/lineBelowUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_line_setting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/userInformationSetting"/>
+
 
 </RelativeLayout>
