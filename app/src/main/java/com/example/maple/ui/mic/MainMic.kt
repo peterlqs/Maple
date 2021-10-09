@@ -13,7 +13,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.maple.R
 import com.example.maple.data.Message
 import com.example.maple.databinding.MainMicFragmentBinding
 import com.example.maple.hideKeyboard
@@ -119,7 +121,9 @@ class MainMic : Fragment() {
             // Remove \n just in case
             val message = binding.editTextChat.text.toString().replace("\n", "")
             // If message not blank then send to Firebase
-            if (message != "") sendText(message)
+            // TODO UNCOMMENT BELOW WHEN DONE
+//            if (message != "") sendText(message)
+            Navigation.findNavController(view).navigate(R.id.action_mainMic_to_mainExperiment)
         }
 
         //Mic ( CURRENTLY NOT WORKING )

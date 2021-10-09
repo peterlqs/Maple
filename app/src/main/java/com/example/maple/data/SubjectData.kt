@@ -20,6 +20,10 @@ data class Diem(
     val diem: Double, val thang: Double, val id: String
 )
 
+data class Task(
+    val task: String, val date: String
+)
+
 // Interface to pass which subject was clicked on from MainScore to SecondScore
 interface WhichSubject {
     fun subjectName(subject: String)

@@ -23,7 +23,11 @@
         android:id="@+id/mainMic"
         android:name="com.example.maple.ui.mic.MainMic"
         android:label="main_mic_fragment"
-        tools:layout="@layout/main_mic_fragment" />
+        tools:layout="@layout/main_mic_fragment">
+        <action
+            android:id="@+id/action_mainMic_to_mainExperiment"
+            app:destination="@id/mainExperiment" />
+    </fragment>
     <fragment
         android:id="@+id/mainNotification"
         android:name="com.example.maple.ui.notification.MainNotification"
@@ -48,5 +52,10 @@
             android:id="@+id/action_secondScore_to_mainScore"
             app:destination="@id/mainScore" />
     </fragment>
+    <fragment
+        android:id="@+id/mainExperiment"
+        android:name="com.example.maple.ui.experiment.MainExperiment"
+        android:label="main_experiment_fragment"
+        tools:layout="@layout/main_experiment_fragment" />
 
 </navigation>
