@@ -86,254 +86,280 @@ class MainCamera : Fragment() {
                             .addOnSuccessListener { visionText ->
                                 val allText = visionText.text.split("\n")
                                 //NEW ADDITION WAIT FOR IT TO COMPLETE
-//                                try {
+                                try {
 
 
-                                val complete = mutableListOf<Score>()
-                                val mul1All = mutableListOf<List<String>>()
-                                //-------------------------------
-                                Log.d("Vision text : ", allText.toString())
-                                val filteredList = mutableListOf<String>()
-                                for (text in allText) {
-                                    var numeric = true
-                                    numeric = text.matches("-?\\d+(\\.\\d+)?".toRegex())
-                                    if (text.contentEquals("")) filteredList.add(text)
-                                    //If text is numeric or in list
-                                    if (numeric || text.trim().lowercase() in listOf(
-                                            "toán",
-                                            "đđggk",
-                                            "đđgck",
-                                            "đ"
-                                        )
-                                    ) {
-                                        filteredList.add(text)
+                                    val complete = mutableListOf<Score>()
+                                    val mul1All = mutableListOf<List<String>>()
+                                    //-------------------------------
+                                    Log.d("Vision text : ", allText.toString())
+                                    val filteredList = mutableListOf<String>()
+                                    for (text in allText) {
+                                        var numeric = true
+                                        numeric = text.matches("-?\\d+(\\.\\d+)?".toRegex())
+                                        if (text.contentEquals("")) filteredList.add(text)
+                                        //If text is numeric or in list
+                                        if (numeric || text.trim().lowercase() in listOf(
+                                                "toán",
+                                                "đđggk",
+                                                "đđgck",
+                                                "đ"
+                                            )
+                                        ) {
+                                            filteredList.add(text)
+                                        }
                                     }
-                                }
-                                val allThings = filteredList
-                                //-------------------------------
-                                val listSubject = listOf(
-                                    "toán",
-                                    "vật lí",
-                                    "hóa học",
-                                    "sinh học",
-                                    "tin học",
-                                    "ngữ văn",
-                                    "lịch Sử",
-                                    "địa Lí",
-                                    "ngoại ngừ",
-                                    "GDCD",
-                                    "công nghệ",
-                                    "thê dục",
-                                    "GD OP-AN",
-                                    "nghể"
-                                )
+                                    val allThings = filteredList
+                                    //-------------------------------
+                                    val listSubject = listOf(
+                                        "toán",
+                                        "vật lí",
+                                        "hóa học",
+                                        "sinh học",
+                                        "tin học",
+                                        "ngữ văn",
+                                        "lịch Sử",
+                                        "địa Lí",
+                                        "ngoại ngừ",
+                                        "GDCD",
+                                        "công nghệ",
+                                        "thê dục",
+                                        "GD OP-AN",
+                                        "nghể"
+                                    )
 //                                println(allThings.toString())
-                                val mul1Pos = allThings.indexOf("Toán") + 1
-                                val mul2Pos = allThings.indexOf("ĐĐGgk") + 1
-                                val mul3Pos = allThings.indexOf("ĐĐGck") + 1
-                                //Column 1
-                                val list1 =
-                                    allThings.subList(mul1Pos, mul1Pos + 14)
-                                        .map { it.toString() }
+                                    val mul1Pos = allThings.indexOf("Toán") + 1
+                                    val mul2Pos = allThings.indexOf("ĐĐGgk") + 1
+                                    val mul3Pos = allThings.indexOf("ĐĐGck") + 1
+                                    //Column 1
+                                    val list1 =
+                                        allThings.subList(mul1Pos, mul1Pos + 14)
+                                            .map { it.toString() }
 //                        println(allThings.subList(mul1Pos,mul1Pos+14))
-                                //Column 2
-                                val list2 = allThings.subList(mul1Pos + 14, mul1Pos + 14 * 2)
-                                    .map { it.toString() }
+                                    //Column 2
+                                    val list2 = allThings.subList(mul1Pos + 14, mul1Pos + 14 * 2)
+                                        .map { it.toString() }
 //                        println(allThings.subList(mul1Pos+14, mul1Pos+14*2))
-                                //Column 3
-                                val list3 =
-                                    allThings.subList(mul1Pos + 14 * 2, mul1Pos + 14 * 2 + 9)
-                                        .map { it.toString() }
+                                    //Column 3
+                                    val list3 =
+                                        allThings.subList(mul1Pos + 14 * 2, mul1Pos + 14 * 2 + 9)
+                                            .map { it.toString() }
 //                        println(allThings.subList(mul1Pos+14*2,mul1Pos+14*2+9))
-                                //Column 4
-                                val list4 =
-                                    allThings.subList(mul1Pos + 14 * 2 + 9, allThings.size)
-                                        .map { it.toString() }
+                                    //Column 4
+                                    val list4 =
+                                        allThings.subList(mul1Pos + 14 * 2 + 9, allThings.size)
+                                            .map { it.toString() }
 //                        println(allThings.subList(mul1Pos+14*2+9,allThings.size))
-                                //Column 5
-                                val list5 =
-                                    allThings.subList(mul2Pos, mul2Pos + 14)
-                                        .map { it.toString() }
+                                    //Column 5
+                                    val list5 =
+                                        allThings.subList(mul2Pos, mul2Pos + 14)
+                                            .map { it.toString() }
 //                        println(allThings.subList(mul2Pos,mul2Pos+14))
-                                //Column 6
-                                val list6 =
-                                    allThings.subList(mul3Pos, mul3Pos + 14)
-                                        .map { it.toString() }
+                                    //Column 6
+                                    val list6 =
+                                        allThings.subList(mul3Pos, mul3Pos + 14)
+                                            .map { it.toString() }
 //                        println(allThings.subList(mul3Pos,mul3Pos+14))
 
-                                var count = 0
-                                //MUL1 only
-                                var count1 = 0
-                                var count2 = 0
-                                var count3 = 0
+                                    var count = 0
+                                    //MUL1 only
+                                    var count1 = 0
+                                    var count2 = 0
+                                    var count3 = 0
 
-                                for (i in list1) {
-                                    val newList = mutableListOf<String>()
-                                    newList.add(list1[count1])
-                                    newList.add(list2[count1])
-                                    if (listSubject[count1] in listOf(
-                                            "toán",
-                                            "vật lí",
-                                            "hóa học",
-                                            "sinh học",
-                                            "tin học",
-                                            "ngữ văn",
-                                            "ngoại ngữ",
-                                            "thể dục",
-                                            "nghề"
-                                        ) && count2 < list3.size
-                                    ) {
-                                        newList.add(list3[count2])
-                                        count2 += 1
+                                    for (i in list1) {
+                                        val newList = mutableListOf<String>()
+                                        newList.add(list1[count1])
+                                        newList.add(list2[count1])
+                                        if (listSubject[count1] in listOf(
+                                                "toán",
+                                                "vật lí",
+                                                "hóa học",
+                                                "sinh học",
+                                                "tin học",
+                                                "ngữ văn",
+                                                "ngoại ngữ",
+                                                "thể dục",
+                                                "nghề"
+                                            ) && count2 < list3.size
+                                        ) {
+                                            newList.add(list3[count2])
+                                            count2 += 1
+                                        }
+                                        if (listSubject[count1] in listOf(
+                                                "toán",
+                                                "hóa học",
+                                                "ngữ văn",
+                                                "ngoại ngữ"
+                                            ) && count3 < list4.size
+                                        ) {
+                                            newList.add(list4[count3])
+                                            count3 += 1
+                                        }
+                                        mul1All.add(newList)
+                                        count1 += 1
                                     }
-                                    if (listSubject[count1] in listOf(
-                                            "toán",
-                                            "hóa học",
-                                            "ngữ văn",
-                                            "ngoại ngữ"
-                                        ) && count3 < list4.size
-                                    ) {
-                                        newList.add(list4[count3])
-                                        count3 += 1
-                                    }
-                                    mul1All.add(newList)
-                                    count1 += 1
-                                }
 
-                                //All the score
-                                for (i in list1) {
-                                    complete.add(
-                                        Score(
-                                            listSubject[count],
-                                            mul1All[count],
-                                            list5[count],
-                                            list6[count]
+                                    //All the score
+                                    for (i in list1) {
+                                        complete.add(
+                                            Score(
+                                                listSubject[count],
+                                                mul1All[count],
+                                                list5[count],
+                                                list6[count]
+                                            )
                                         )
-                                    )
-                                    count += 1
-                                }
-                                Log.d("Result : ", complete.toString())
-                                allList.add(allThings)
-                                // Finish scanning
-                                var resultText = ""
-                                for (score in complete) {
-                                    resultText += "${score.subject} :\n HS1 : ${score.score1}\n HS2 : ${score.score2}\n HS3 : ${score.score3}\n"
-                                }
-                                binding.editTxtAll.text = resultText
-                                binding.editTxtAll.visibility = VISIBLE
-                                binding.btnSubjects.visibility = VISIBLE
-
-                                val scoreList = mutableListOf<SubjectData>()
-                                binding.btnSubjects.setOnClickListener {
+                                        count += 1
+                                    }
+                                    Log.d("Result : ", complete.toString())
+                                    allList.add(allThings)
+                                    // Finish scanning
+                                    var resultText = ""
                                     for (score in complete) {
-                                        Log.d(TAG, score.toString())
-                                        Log.d(TAG, score.score2.isDigitsOnly().toString())
-                                        for (score1 in score.score1) {
-                                            val numeric =
-                                                score1.matches("-?\\d+(\\.\\d+)?".toRegex())
-                                            if (numeric) {
-                                                // Default first semester is December
+                                        resultText += "${score.subject} :\n HS1 : ${score.score1}\n HS2 : ${score.score2}\n HS3 : ${score.score3}\n"
+                                    }
+                                    binding.editTxtAll.text = resultText
+                                    binding.editTxtAll.visibility = VISIBLE
+                                    binding.btnSubjects.visibility = VISIBLE
+
+                                    val scoreList = mutableListOf<SubjectData>()
+                                    binding.btnSubjects.setOnClickListener {
+                                        for (score in complete) {
+                                            Log.d(TAG, score.toString())
+                                            Log.d(TAG, score.score2.isDigitsOnly().toString())
+                                            for (score1 in score.score1) {
+                                                val numeric =
+                                                    score1.matches("-?\\d+(\\.\\d+)?".toRegex())
+                                                if (numeric) {
+                                                    // Default first semester is December
+                                                    scoreList.add(
+                                                        SubjectData(
+                                                            12,
+                                                            1,
+                                                            score1.toDouble(),
+                                                            score.subject
+                                                        )
+                                                    )
+                                                }
+                                            }
+                                            if (score.score2.matches("-?\\d+(\\.\\d+)?".toRegex())) {
                                                 scoreList.add(
                                                     SubjectData(
                                                         12,
-                                                        1,
-                                                        score1.toDouble(),
+                                                        2,
+                                                        score.score2.toDouble(),
+                                                        score.subject
+                                                    )
+                                                )
+                                            }
+                                            if (score.score3.matches("-?\\d+(\\.\\d+)?".toRegex())) {
+                                                scoreList.add(
+                                                    SubjectData(
+                                                        12,
+                                                        3,
+                                                        score.score3.toDouble(),
                                                         score.subject
                                                     )
                                                 )
                                             }
                                         }
-                                        if (score.score2.matches("-?\\d+(\\.\\d+)?".toRegex())) {
-                                            scoreList.add(
-                                                SubjectData(
-                                                    12,
-                                                    2,
-                                                    score.score2.toDouble(),
-                                                    score.subject
-                                                )
-                                            )
-                                        }
-                                        if (score.score3.matches("-?\\d+(\\.\\d+)?".toRegex())) {
-                                            scoreList.add(
-                                                SubjectData(
-                                                    12,
-                                                    3,
-                                                    score.score3.toDouble(),
-                                                    score.subject
-                                                )
-                                            )
-                                        }
-                                    }
-                                    Log.d(TAG, scoreList.toString())
-                                    // filtered scoreList ( no string )
-                                    // because of null it looks like this
-                                    // orginally updateData(score.score, score.month, score.mul, score.sub)
-                                    for (score in scoreList) {
-                                        score.score?.let { it1 ->
-                                            score.month?.let { it2 ->
-                                                score.mul?.let { it3 ->
-                                                    score.sub?.let { it4 ->
-                                                        updateData(
-                                                            it1,
-                                                            it2, it3, it4
-                                                        )
+                                        Log.d(TAG, scoreList.toString())
+                                        // filtered scoreList ( no string )
+                                        // because of null it looks like this
+                                        // orginally updateData(score.score, score.month, score.mul, score.sub)
+                                        for (score in scoreList) {
+                                            score.score?.let { it1 ->
+                                                score.month?.let { it2 ->
+                                                    score.mul?.let { it3 ->
+                                                        score.sub?.let { it4 ->
+                                                            updateData(
+                                                                it1,
+                                                                it2, it3, it4
+                                                            )
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
+                                        Navigation.findNavController(view)
+                                            .navigate(R.id.action_mainCamera_to_mainScore)
                                     }
-                                    Navigation.findNavController(view)
-                                        .navigate(R.id.action_mainCamera_to_mainScore)
+                                } catch (e: Exception) {
+                                    Log.d(TAG, "HI")
+                                    val filteredText = mutableListOf<String>()
+                                    val filterWords = listOf(
+                                        "seee",
+                                        "se*",
+                                        "e*",
+                                        "*e",
+                                        "sexo",
+                                        "**",
+                                        "ests",
+                                        "sss",
+                                        "eee",
+                                        "eses",
+                                        "ssu",
+                                        "oxes",
+                                        "ssen",
+                                        "resse",
+                                        "$",
+                                        "uue",
+                                        "sese",
+                                        "eeu",
+                                        "suu",
+                                        "aee",
+                                        "eese",
+                                        "sess",
+                                        "444",
+                                        "aee",
+                                        "esae",
+                                        "exes",
+                                        "ssee",
+                                        "reens",
+                                        "cevee",
+                                        "s ess",
+                                        "esee",
+                                        "sote",
+                                        "eeas",
+                                        "btes",
+                                        "becs",
+                                        "eerad",
+                                        "44",
+                                        "66",
+                                        "99"
+                                    )
+                                    for (text in allText) {
+                                        var validWord = true
+                                        for (filter in filterWords)
+                                            if (filter in text.lowercase()) {
+                                                validWord = false
+                                                break
+                                            }
+                                        if (validWord) {
+                                            filteredText.add(text.replace("|", ""))
+                                        }
+                                    }
+                                    // Finish scanning
+                                    var resultText = ""
+                                    for (text in filteredText) {
+                                        resultText += "$text "
+                                    }
+                                    binding.editTxtAll.text = resultText
+                                    binding.editTxtAll.visibility = VISIBLE
+                                    binding.btnSubjects.visibility = VISIBLE
+
+                                    binding.btnSubjects.setOnClickListener {
+                                        for (subject in filteredText) {
+                                            addSubject(subject)
+                                        }
+                                        Navigation.findNavController(view)
+                                            .navigate(R.id.action_mainCamera_to_mainScore)
+                                    }
+
+                                    Log.d(TAG, filteredText.toString())
                                 }
                             }
-//                                catch (e: Exception) {
-//                                    Log.d(TAG, "HI")
-//                                    val filteredText = mutableListOf<String>()
-//                                    val filterWords = listOf(
-//                                        "seee",
-//                                        "se*",
-//                                        "e*",
-//                                        "*e",
-//                                        "sexo",
-//                                        "**",
-//                                        "ests",
-//                                        "sss",
-//                                        "eee",
-//                                        "eses",
-//                                        "ssu",
-//                                        "oxes","ssen","resse","$",
-//                                        "uue","sese","eeu","suu","aee","eese","sess","444","aee","esae","exes","ssee","reens","cevee","s ess","esee","sote","eeas","btes","becs","eerad","44","66","99"
-//                                    )
-//                                    for (text in allText) {
-//                                        var validWord = true
-//                                        for (filter in filterWords)
-//                                            if (filter in text.lowercase()) {
-//                                                validWord = false
-//                                                break
-//                                            }
-//                                        if (validWord) {
-//                                            filteredText.add(text.replace("|", ""))
-//                                        }
-//                                    }
-//                                    // Finish scanning
-//                                    var resultText = ""
-//                                    for (text in filteredText) {
-//                                        resultText += "$text "
-//                                    }
-//                                    binding.editTxtAll.text = resultText
-//                                    binding.editTxtAll.visibility = VISIBLE
-//                                    binding.btnSubjects.visibility = VISIBLE
-//
-//                                    binding.btnSubjects.setOnClickListener {
-//                                        for (subject in filteredText) {
-//                                            addSubject(subject)
-//                                        }
-//                                        Navigation.findNavController(view).navigate(R.id.action_mainCamera_to_mainScore)
-//                                    }
-//
-//                                    Log.d(TAG, filteredText.toString())
-//                                }
-//                            }
                     }
                 }
             }
