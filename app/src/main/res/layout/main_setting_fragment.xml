@@ -48,6 +48,7 @@
         android:layout_height="wrap_content"
         style="@style/TextSetting"
         android:text="Thông tin của bạn"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/userNameSetting" />
 
@@ -57,8 +58,56 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_line_setting"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/userInformationSetting"/>
+
+    <TextView
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Cài đặt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/lineBelowUserInfo" />
+
+    <ImageView
+        android:id="@+id/lineBelowSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_line_setting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/setting"/>
+
+    <TextView
+        android:id="@+id/applicationInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Thông tin ứng dụng"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/lineBelowSetting" />
+
+    <ImageView
+        android:id="@+id/lineBelowApplicationInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_line_setting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/applicationInformation"/>
+
+    <TextView
+        android:id="@+id/applicationLoggingOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Đăng xuất"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/lineBelowApplicationInformation" />
 
 
 </RelativeLayout>
