@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import com.canhub.cropper.*
 import com.example.maple.R
 import com.example.maple.adapter.MainScoreAdapter
 import com.example.maple.data.AverageSubject
@@ -158,10 +159,13 @@ class MainScore : Fragment(), WhichSubject {
         binding.button2.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainExperiment)
         }
+        binding.fabCam.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainCamera)
+        }
+        //-------------------------
 
 
     }
-
     // This is to know which subject user press, idk how to explain
     override fun subjectName(subject: String) {
         //Leave blank

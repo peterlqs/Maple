@@ -24,6 +24,14 @@ data class Task(
     val task: String, val date: String
 )
 
+data class Score(
+    val subject: String,
+    val score1: List<String>,
+    val score2: String,
+    val score3: String
+)
+
+
 // Interface to pass which subject was clicked on from MainScore to SecondScore
 interface WhichSubject {
     fun subjectName(subject: String)

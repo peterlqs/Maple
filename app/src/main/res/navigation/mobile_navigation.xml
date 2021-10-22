@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_mainScore_to_mainExperiment"
             app:destination="@id/mainExperiment" />
+        <action
+            android:id="@+id/action_mainScore_to_mainCamera"
+            app:destination="@id/mainCamera" />
     </fragment>
     <fragment
         android:id="@+id/mainMic"
@@ -56,5 +59,13 @@
         android:name="com.example.maple.ui.experiment.MainExperiment"
         android:label="main_experiment_fragment"
         tools:layout="@layout/main_experiment_fragment" />
+    <fragment
+        android:id="@+id/mainCamera"
+        android:name="com.example.maple.ui.score.MainCamera"
+        android:label="MainCamera">
+        <action
+            android:id="@+id/action_mainCamera_to_mainScore"
+            app:destination="@id/mainScore" />
+    </fragment>
 
 </navigation>

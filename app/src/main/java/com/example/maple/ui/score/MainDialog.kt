@@ -61,6 +61,34 @@ class MainDialog : DialogFragment() {
             // Clear the text input
             subject.text?.clear()
         }
+        //Add basic subject button
+        val allBtn = rootView.findViewById<MaterialButton>(R.id.btnAll)
+        allBtn.setOnClickListener {
+            // All the subjects
+            val basicSubject = mutableListOf(
+                "Toán",
+                "Vật lí",
+                "Hóa học",
+                "Sinh học",
+                "Tin học",
+                "Ngữ văn",
+                "Lịch sử",
+                "Địa lí",
+                "Ngoại ngữ",
+                "GDCD",
+                "Công nghệ",
+                "Thể dục",
+                "GD QP-AN",
+                "Nghề"
+            )
+            // Add each sub in all subs
+            for (sub in basicSubject) {
+                addSubject(sub)
+            }
+            Toast.makeText(context, "Thêm môn thành công", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+
         return rootView
     }
 
@@ -73,24 +101,25 @@ class MainDialog : DialogFragment() {
             "score" to 0,
             "mul" to 0
         )
+        //Get data from viewModel, add new value then set new value to viewModel
+        val originalData = viewModel.subjectData.value
+        originalData?.add(
+            SubjectData(
+                0,
+                0,
+                0.0,
+                subject
+            )
+        )
+        viewModel.setSubjectData(originalData!!)
         //Update data on firebase
         db.collection("users")
             .document(auth.currentUser?.uid.toString())
             .collection("subjectScores")
             .add(subjectName).addOnSuccessListener {
-                //Get data from viewModel, add new value then set new value to viewModel
-                val originalData = viewModel.subjectData.value
-                originalData?.add(
-                    SubjectData(
-                        0,
-                        0,
-                        0.0,
-                        subject
-                    )
-                )
-                viewModel.setSubjectData(originalData!!)
+
                 Log.d("Something", "DocumentSnapshot successfully written!")
-                Toast.makeText(context, "Thêm môn thành công", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "Thêm môn thành công", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener { e ->
                 Log.w(
                     "Something",
