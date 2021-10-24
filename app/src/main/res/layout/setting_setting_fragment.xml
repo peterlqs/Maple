@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="50dp"
+    android:background="@drawable/background_app">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/userAvaSetting"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circular" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddAvaSetting"
+        style="@style/FabStyle"
+        android:layout_alignLeft="@id/userAvaSetting"
+        android:layout_alignTop="@id/userAvaSetting"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="53dp"
+        android:onClick="pickProfileImage"
+        android:paddingLeft="150dp"
+        app:fabSize="normal"
+        app:maxImageSize="30dp" />
+
+    <ImageView
+        android:id="@+id/lineAboveUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fabAddAvaSetting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_line_setting" />
+
+    <TextView
+        android:id="@+id/setting1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Cài gì đó"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lineAboveUserInfo" />
+
+    <TextView
+        android:id="@+id/setting2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Cài gì đó"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/setting1" />
+
+    <TextView
+        android:id="@+id/setting3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextSetting"
+        android:text="Email"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/setting2" />
+
+    <ImageView
+        android:id="@+id/lineBelowUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setting3"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_line_setting"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
