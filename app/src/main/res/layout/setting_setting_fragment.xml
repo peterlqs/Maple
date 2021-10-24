@@ -32,82 +32,53 @@
         app:fabSize="normal"
         app:maxImageSize="30dp" />
 
-    <TextView
-        android:id="@+id/userNameSetting"
+    <ImageView
+        android:id="@+id/lineAboveUserInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TitleUserName"
-        android:text="Tên: Tên ở đây nè nhe"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/fabAddAvaSetting"
-        android:ellipsize="end"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ic_line_setting" />
 
     <TextView
-        android:id="@+id/userInformationSetting"
+        android:id="@+id/setting1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextSetting"
-        android:text="Thông tin của bạn"
+        android:text="Cài gì đó"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/userNameSetting" />
-
-    <ImageView
-        android:id="@+id/lineBelowUserInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_line_setting"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/userInformationSetting"/>
+        android:layout_below="@id/lineAboveUserInfo" />
 
     <TextView
-        android:id="@+id/setting"
+        android:id="@+id/setting2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextSetting"
-        android:text="Cài đặt"
+        android:text="Cài gì đó"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/lineBelowUserInfo" />
-
-    <ImageView
-        android:id="@+id/lineBelowSetting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_line_setting"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/setting"/>
+        android:layout_below="@id/setting1" />
 
     <TextView
-        android:id="@+id/applicationInformation"
+        android:id="@+id/setting3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextSetting"
-        android:text="Thông tin ứng dụng"
+        android:text="Email"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/lineBelowSetting" />
+        android:layout_below="@id/setting2" />
 
     <ImageView
-        android:id="@+id/lineBelowApplicationInformation"
+        android:id="@+id/lineBelowUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/setting3"
+        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/ic_line_setting"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/applicationInformation"/>
-
-    <TextView
-        android:id="@+id/applicationLoggingOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextSetting"
-        android:text="Đăng xuất"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/lineBelowApplicationInformation" />
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>

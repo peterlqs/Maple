@@ -8,6 +8,7 @@
     android:padding="16dp"
     tools:context=".ui.notification.MainNotification">
 
+
     <ImageView
         android:id="@+id/name_background"
         android:layout_width="0dp"
@@ -77,8 +78,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Experiment"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/fabCam" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:clickable="true"
+        android:src="@drawable/ic_camera"
         app:layout_constraintBottom_toBottomOf="@+id/fabAdd"
         app:layout_constraintEnd_toStartOf="@+id/fabAdd"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
         app:layout_constraintTop_toTopOf="@+id/fabAdd" />
 </androidx.constraintlayout.widget.ConstraintLayout>
