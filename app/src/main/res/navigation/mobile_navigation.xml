@@ -9,7 +9,14 @@
         android:id="@+id/mainSetting"
         android:name="com.example.maple.ui.setting.MainSetting"
         android:label="fragment_main_setting"
-        tools:layout="@layout/main_setting_fragment" />
+        tools:layout="@layout/main_setting_fragment">
+        <action
+            android:id="@+id/action_mainSetting_to_settingSetting"
+            app:destination="@id/settingSetting" />
+        <action
+            android:id="@+id/action_mainSetting_to_userInformationSetting2"
+            app:destination="@id/userInformationSetting2" />
+    </fragment>
     <fragment
         android:id="@+id/mainScore"
         android:name="com.example.maple.ui.score.MainScore"
@@ -67,5 +74,13 @@
             android:id="@+id/action_mainCamera_to_mainScore"
             app:destination="@id/mainScore" />
     </fragment>
+    <fragment
+        android:id="@+id/settingSetting"
+        android:name="com.example.maple.ui.setting.SettingSetting"
+        android:label="SettingSetting" />
+    <fragment
+        android:id="@+id/userInformationSetting2"
+        android:name="com.example.maple.ui.setting.UserInformationSetting"
+        android:label="UserInformationSetting" />
 
 </navigation>
