@@ -6,4 +6,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="exit">Exit</string>
+    
+    <string name="notification1">Lâu rồi bạn chưa có thăm app đó.</string>
+    <string name="notification2">Bạn ơi nhớ nhập điểm nhé!</string>
+    <string name="notification3">Video mới đã được thêm vào. Bạn hãy xem và tiếp tục nỗ lực nhé!</string>
+    <string name="notification4">Bạn ơi nhớ nhập điểm nhé!</string>
+    <string name="notification5">Bạn đã xem xong video, đừng quên làm khảo sát để giúp chúng mình tìm thêm nhiều video hữu ích hơn bạn nhé!</string>
+    <string name="notification6">Số giờ học hôm nay của bạn chưa đủ. Hãy ngồi vào bàn học nào!</string>
 </resources>

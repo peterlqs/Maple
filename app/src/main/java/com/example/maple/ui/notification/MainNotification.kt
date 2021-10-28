@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.maple.R
+import com.example.maple.adapter.NotificationAdapter
+import com.example.maple.data.NotificationDataSource
+import com.example.maple.databinding.MainNotificationFragmentBinding
 
 class MainNotification : Fragment() {
 
@@ -15,6 +19,12 @@ class MainNotification : Fragment() {
     }
 
     private lateinit var viewModel: MainNotificationViewModel
+
+    //Binding
+    private lateinit var _binding: MainNotificationFragmentBinding
+    private val binding get() = _binding
+
+    val dataSet = NotificationDataSource().loadNotifications()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +37,16 @@ class MainNotification : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainNotificationViewModel::class.java)
         // TODO: Use the ViewModel
+
+        val notiView = binding.notificationList
+        notiView.apply {
+            //Type grid, 2 item horizontally
+            layoutManager = LinearLayoutManager(activity)
+            //Set adapter, i cant explain the second parameter
+            adapter = NotificationAdapter(this)
+
+            notiView.setHasFixedSize(true)
+        }
     }
 
 }
