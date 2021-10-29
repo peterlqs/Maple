@@ -59,6 +59,8 @@ class MainRecommendation : Fragment() {
             layoutManager = GridLayoutManager(activity, 2)
             //Set adapter, i cant explain the second parameter
             //adapter = RecommendationAdapter(this)
+
+            subjectView.setHasFixedSize(true)
         }
 
     }

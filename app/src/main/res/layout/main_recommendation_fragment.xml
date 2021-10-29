@@ -46,15 +46,6 @@
         app:layout_constraintStart_toStartOf="@+id/name_background"
         app:layout_constraintTop_toTopOf="@+id/name_background" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/mhoc_luu_y"
         android:layout_width="wrap_content"
