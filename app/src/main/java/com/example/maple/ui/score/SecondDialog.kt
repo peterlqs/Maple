@@ -65,7 +65,7 @@ class SecondDialog : DialogFragment() {
             val month = rootView.findViewById<EditText>(R.id.editText4).text.toString()//.toInt()
 
             // If not digit then show error text or meet the requirements
-            if (!score.isDigitsOnly() || !mul.isDigitsOnly() || !month.isDigitsOnly() || score.isBlank() || mul.isBlank() || month.isBlank()) {
+            if (!score.matches("-?\\d+(\\.\\d+)?".toRegex()) || !mul.isDigitsOnly() || !month.isDigitsOnly() || score.isBlank() || mul.isBlank() || month.isBlank()) {
                 Toast.makeText(context, "Bạn cần nhập số", Toast.LENGTH_SHORT).show()
             } else if (month.toInt() > 12 || month.toInt() < 1) {
                 Toast.makeText(context, "Bạn cần tháng từ 1 tới 12", Toast.LENGTH_SHORT).show()

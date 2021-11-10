@@ -8,6 +8,10 @@
     tools:context=".ui.recommendation.SubjectRecommend">
 
     <TextView
+        android:background="@drawable/rectangle"
+        android:backgroundTint="@color/palette4"
+        android:gravity="center"
+        android:textColor="@color/palette1"
         android:id="@+id/subjectName"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -20,27 +24,14 @@
 
         ></TextView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/box"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="20dp"
-        android:background="@color/palette2"
-
-        app:layout_constraintBottom_toTopOf="@id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subjectName">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="20dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/box">
+        app:layout_constraintTop_toBottomOf="@+id/subjectName">
 
     </androidx.recyclerview.widget.RecyclerView>
 

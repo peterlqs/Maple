@@ -2,21 +2,25 @@ package com.example.maple.ui.recommendation
 
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.maple.adapter.RecommendationAdapter
 import com.example.maple.data.AverageSubject
 import com.example.maple.data.SubjectData
 import com.example.maple.databinding.MainRecommendationFragmentBinding
+import com.example.maple.hideKeyboard
 import com.example.maple.ui.score.MainDialog
 import com.example.maple.ui.score.MainScore
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
@@ -43,6 +47,40 @@ class MainRecommendation : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Set name
+        db.collection("users").document(auth.uid!!).addSnapshotListener { value, error ->
+            //Error handling
+            if (error != null) {
+                Log.w(MainScore.TAG, "listen:error", error)
+                return@addSnapshotListener
+            }
+            binding.userName.text = value?.get("name").toString()
+            if (value?.get("score") != null) {
+                binding.userName2.text = "Mục tiêu điểm số : "
+                binding.editTextTextPersonName3.setText(value.get("score").toString())
+            }
+        }
+        // When hit enter button, setOnKeyListener is like onClickListener but for key
+        binding.editTextTextPersonName3.setOnKeyListener { _, keyCode, event ->
+            // If the key is enter AND user press on the enter key
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                val score = binding.editTextTextPersonName3.text.toString()
+                if (score.matches("-?\\d+(\\.\\d+)?".toRegex())) {
+                    db.collection("users").document(email).set(
+                        hashMapOf("score" to score),
+                        SetOptions.merge()
+                    )
+                } else {
+                    Toast.makeText(context, "Vui lòng nhập số", Toast.LENGTH_SHORT).show()
+                }
+                hideKeyboard(view)
+            }
+            // If not enter then do nothing
+            false
+        }
+
+
         database = Firebase.database.reference
 
         database.child("subjects").child("12").get()
@@ -67,6 +105,18 @@ class MainRecommendation : Fragment() {
             dialog.show(childFragmentManager, "customDialog")
 
             //This part is for choosing avatar from our storage
+        }
+
+        // Get user desired score
+        var wantedScore = 0.0
+        db.collection("users").document(auth.uid!!).addSnapshotListener { value, error ->
+            //Error handling
+            if (error != null) {
+                Log.w(MainScore.TAG, "listen:error", error)
+                return@addSnapshotListener
+            }
+            if (value?.get("score") != null)
+                wantedScore = value.get("score").toString().toDouble()
         }
 
         val registration = db.collection("users")
@@ -132,7 +182,7 @@ class MainRecommendation : Fragment() {
                         finalScore = 0.0
                     }
                     //Lower than 8 warning text
-                    if (finalScore < 8 && finalScore != 0.0) {
+                    if (finalScore < wantedScore && finalScore != 0.0) {
                         lowerThan8.add("${currentSubject.toString()} ($finalScore)")
                     }
                     //Put into the list
@@ -142,7 +192,7 @@ class MainRecommendation : Fragment() {
                         theScore.add(finalScore)
                         //Add into list that has calculated average subject score
                         scoreSubject.add(AverageSubject(currentSubject, finalScore))
-                        if ((finalScore <= 8) and (finalScore > 0)) {
+                        if ((finalScore <= wantedScore) and (finalScore > 0)) {
                             lowerThan8Subjects.add(AverageSubject(currentSubject, finalScore))
                         }
                     }
@@ -183,6 +233,7 @@ class MainRecommendation : Fragment() {
         fun getName(): String? {
             return sName
         }
+
         fun setCode(name: String?) {
             sName = name
         }

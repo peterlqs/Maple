@@ -8,6 +8,7 @@
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
     card_view:cardCornerRadius="20dp"
+    android:layout_margin="8dp"
     card_view:cardElevation="8dp">
 
     <TextView

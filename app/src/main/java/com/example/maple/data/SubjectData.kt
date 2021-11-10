@@ -1,5 +1,7 @@
 package com.example.maple.data
 
+import com.google.firebase.database.IgnoreExtraProperties
+
 // Data for each score for MainScore
 data class SubjectData(
     val month: Int? = null,
@@ -31,6 +33,18 @@ data class Score(
     val score3: String
 )
 
+data class Notification(
+    val time: String,
+    val content: String
+)
+
+@IgnoreExtraProperties
+data class SubjectInfo(
+    val section: String,
+    val link: String
+) {
+
+}
 
 // Interface to pass which subject was clicked on from MainScore to SecondScore
 interface WhichSubject {

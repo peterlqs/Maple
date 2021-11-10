@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.maple.adapter.SubjectAdapter
+import com.example.maple.data.SubjectInfo
 import com.example.maple.databinding.FragmentSubjectRecommendBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -38,25 +41,36 @@ class SubjectRecommend : Fragment() {
         database = Firebase.database.reference
         val month = calendar.get(Calendar.MONTH) + 1
         Log.e("Month", month.toString())
-        database.child("subjects").child("12").child(args.subjectName.lowercase())
+        database.child("subjects").child("12").child(args.subjectName.capitalize())
             .child(month.toString()).get()
-            .addOnSuccessListener {
-                if (it.value != null) {
-                    Log.e("Subjects", it.value.toString())
+            .addOnSuccessListener { value ->
+                if (value.value != null) {
+//                    val data = it.getValue<SubjectInfo>()
+//                    Log.d("Recommend", data?.link.toString())
+                    Log.d("ad", value.value.toString())
+                    val subjectList =
+                        value.value.toString().substring(1, value.value.toString().length - 1)
+                            .split(",").associate {
+                                val (left, right) = it.split("=")
+                                left to right.toString()
+                            }
+                    val allThings = mutableListOf<SubjectInfo>()
+                    for ((key, value) in subjectList) {
+                        allThings.add(SubjectInfo(key, value))
+                    }
 
-//                val subjectView = binding.recyclerView
-//                subjectView.apply {
-//                    //Type grid, 2 item horizontally
-//                    layoutManager = LinearLayoutManager(activity)
-//                    //Set adapter, i cant explain the second parameter
-//                    adapter = RecommendationAdapter()
-//
-//                    subjectView.setHasFixedSize(true)
+
+                    val subjectView = binding.recyclerView
+                    subjectView.apply {
+                        //Type grid, 2 item horizontally
+                        layoutManager = LinearLayoutManager(activity)
+                        //Set adapter, i cant explain the second parameter
+                        adapter = SubjectAdapter(allThings)
+
+                        subjectView.setHasFixedSize(true)
 //                }
-                } else {
-                    Log.e("Practice", "not found")
+                    }
                 }
-
 
             }.addOnFailureListener {
                 Log.e("Subjects", "Retrieval Failed")

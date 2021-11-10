@@ -27,6 +27,9 @@
         </TextView>
 
         <TextView
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:textColorLink="#03A9F4"
             android:id="@+id/hyperlink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

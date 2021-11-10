@@ -56,6 +56,17 @@ class MainScore : Fragment(), WhichSubject {
             val dialog = MainDialog()
             dialog.show(childFragmentManager, "customDialog")
         }
+        // Get user desired score
+        var wantedScore = 0.0
+        db.collection("users").document(auth.uid!!).addSnapshotListener { value, error ->
+            //Error handling
+            if (error != null) {
+                Log.w(MainScore.TAG, "listen:error", error)
+                return@addSnapshotListener
+            }
+            if (value?.get("score") != null)
+                wantedScore = value.get("score").toString().toDouble()
+        }
 
         //Recycler view
         //First make a Firebase snapshot listener so whenever the data change
@@ -124,7 +135,7 @@ class MainScore : Fragment(), WhichSubject {
                         finalScore = 0.0
                     }
                     //Lower than 8 warning text
-                    if (finalScore < 8 && finalScore != 0.0) {
+                    if (finalScore < wantedScore && finalScore != 0.0) {
                         lowerThan8.add("${currentSubject.toString()} ($finalScore)")
                     }
                     //Put into the list
@@ -139,7 +150,8 @@ class MainScore : Fragment(), WhichSubject {
                 //Lower than 8 list, doesn't include 0
                 val lowerScores = binding.txtLower
                 val allLowerScore = lowerThan8.toString().replace("[", "").replace("]", "")
-                if (allLowerScore.isNotEmpty()) lowerScores.text = "Điểm dưới 8 : $allLowerScore"
+                if (allLowerScore.isNotEmpty()) lowerScores.text =
+                    "Điểm dưới $wantedScore : $allLowerScore"
                 //Average score of all subject
                 val averageScoreAll = binding.txtAverage
                 val averageScore = "%.2f".format(totalScore.div(totalMul)).toDouble()
