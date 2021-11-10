@@ -4,21 +4,21 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="3dp"
-    android:layout_marginLeft="6dp"
-    android:layout_marginRight="6dp"
+    android:layout_margin="12dp"
     card_view:cardCornerRadius="20dp"
     card_view:cardElevation="8dp">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/subjectName"
-        style="@style/SubjectStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="Toán"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:ellipsize="end"/>
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/white"
+        android:padding="10dp"
+        android:textSize="27dp">
+
+    </androidx.appcompat.widget.AppCompatButton>
 
 </androidx.cardview.widget.CardView>

@@ -145,7 +145,7 @@ class MainScore : Fragment(), WhichSubject {
                 val averageScore = "%.2f".format(totalScore.div(totalMul)).toDouble()
                 //If NaN then don't set
                 if (!averageScore.isNaN()) averageScoreAll.text =
-                    "Điểm trung bình : ${averageScore.toString()}"
+                    "Điểm trung bình : $averageScore"
                 //Populate the recycler view
                 val subjectView = binding.recyclerView
                 subjectView.apply {
@@ -155,6 +155,7 @@ class MainScore : Fragment(), WhichSubject {
                     adapter = MainScoreAdapter(scoreSubject, this@MainScore)
                 }
             }
+
         // TODO DEV REMOVE LATER
         binding.button2.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainExperiment)

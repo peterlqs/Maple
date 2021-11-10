@@ -46,7 +46,11 @@
         android:id="@+id/mainRecommendation"
         android:name="com.example.maple.ui.recommendation.MainRecommendation"
         android:label="main_recommendation_fragment"
-        tools:layout="@layout/main_recommendation_fragment" />
+        tools:layout="@layout/main_recommendation_fragment">
+        <action
+            android:id="@+id/action_mainRecommendation_to_subjectRecommend"
+            app:destination="@id/subjectRecommend" />
+    </fragment>
     <activity
         android:id="@+id/login"
         android:name="com.example.maple.Login"
@@ -82,5 +86,16 @@
         android:id="@+id/userInformationSetting2"
         android:name="com.example.maple.ui.setting.UserInformationSetting"
         android:label="UserInformationSetting" />
+    <fragment
+        android:id="@+id/subjectRecommend"
+        android:name="com.example.maple.ui.recommendation.SubjectRecommend"
+        android:label="SubjectRecommend">
+        <action
+            android:id="@+id/action_subjectRecommend_to_mainRecommendation"
+            app:destination="@id/mainRecommendation" />
+        <argument
+            android:name="subjectName"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

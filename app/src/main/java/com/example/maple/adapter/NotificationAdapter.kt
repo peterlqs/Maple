@@ -21,10 +21,10 @@ class NotificationAdapter(val notifications: RecyclerView) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentNoti = notifications[position]
-        holder.notiContent.text = "$currentNoti"
+//        val currentNoti = notifications[position]
+//        holder.notiContent.text = "$currentNoti"
     }
 
-    override fun getItemCount() = notifications.size
+    override fun getItemCount() = 8
 }
 
