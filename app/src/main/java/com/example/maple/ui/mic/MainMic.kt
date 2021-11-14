@@ -14,14 +14,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.maple.BotBackend.Bot.BotBackend
+import com.example.maple.ModelCallBack
 import com.example.maple.data.Message
 import com.example.maple.databinding.MainMicFragmentBinding
 import com.example.maple.hideKeyboard
+import com.example.maple.jsonReader.JsonModel
+import com.example.maple.tools.NumpyAlike
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import org.json.JSONArray
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -29,6 +34,9 @@ class MainMic : Fragment() {
     // Db and user
     private val ref = FirebaseDatabase.getInstance().reference
     private val user = FirebaseAuth.getInstance().currentUser?.uid
+    private val BotModel = BotBackend()
+    private val myJSON = JsonModel()
+    private val np = NumpyAlike()
 
 
     // Binding
@@ -145,13 +153,74 @@ class MainMic : Fragment() {
                 Log.d(TAG, "Success add to realtime")
             }
 
-        //Demo bot, current it just say hi im a bot
-        val botObject = Message("Hi im a bot", "bot")
-        ref.child("chats").child(user).child("messages").push()
-            .setValue(botObject).addOnSuccessListener {
-                binding.editTextChat.setText("")
-                Log.d(TAG, "Success add to realtime BOT")
+        val indexToPos = myJSON.indexToPosTAG(requireContext())
+        BotModel.initializeModel(
+            BotModel.preprocess(
+                text,
+                myJSON.intentDictGetter(requireContext()),
+                11,
+                requireContext()
+            ),
+            BotModel.preprocess(
+                text,
+                myJSON.posmesDictGetter(requireContext()),
+                71,
+                requireContext()
+            ),
+            requireContext(),
+            object : ModelCallBack {
+                override fun onCallBack(output: MutableMap<Int, Any>) {
+                    val intentOutput: Array<FloatArray> = output[1] as Array<FloatArray>
+                    val posOutput: Array<Array<FloatArray>> = output[0] as Array<Array<FloatArray>>
+                    val posOutputSeq = mutableListOf<String>()
+                    val pred = myJSON.intentLabelGetter(requireContext())[BotModel.accept_accuracy(
+                        intentOutput[0].toMutableList(),
+                        0.8f
+                    )].toString()
+                    for ((index, i) in posOutput[0].toMutableList().withIndex()) {
+                        posOutputSeq.add(indexToPos[np.argmax(i.toMutableList())].toString())
+                    }
+                    val intent_pred = intentOutput[0].toMutableList().toString()
+
+                    if (pred != "NULL") {
+                        val responsesDict: HashMap<String, JSONArray> =
+                            myJSON.repsonsesGetter(requireContext())
+                        val responsesList = responsesDict[pred]
+                        if (responsesDict != null) {
+                            val rep = responsesList?.get((0..(responsesList.length() - 1)).random())
+                            if (rep != null) {
+                                val botObject = Message(rep.toString(), "bot")
+                                ref.child("chats").child(user).child("messages").push()
+                                    .setValue(botObject).addOnSuccessListener {
+                                        binding.editTextChat.setText("")
+                                        Log.d(TAG, "Success add to realtime BOT")
+                                    }
+                            }
+                        }
+                    } else {
+                        val botObject = Message("Mình không hiểu lắm", "bot")
+                        ref.child("chats").child(user).child("messages").push()
+                            .setValue(botObject).addOnSuccessListener {
+                                binding.editTextChat.setText("")
+                                Log.d(TAG, "Success add to realtime BOT")
+                            }
+                    }
+                    Log.e(
+                        "POS_Ex",
+                        BotModel.posExtractor(text, posOutputSeq, requireContext()).toString()
+                    )
+
+                    Log.e("intent", intent_pred)
+                    Log.e("intentLabel", pred)
+
+
+                }
             }
+        )
+
+
+        //Demo bot, current it just say hi im a bot
+
     }
 
     //------------------------

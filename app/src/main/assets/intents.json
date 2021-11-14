@@ -1,0 +1,303 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Chào bạn",
+        "Có ai ở đó không vậy ?",
+        "Hello cậu",
+        "Alo có ai ở đó không",
+        "Ai ở đó thế ?",
+        "Có ai ở đó không thế ?",
+        "Tên mình là Kiên",
+        "Mình tên là Nick",
+        "Fennec ơi",
+        "Hi bạn",
+        "Hello có ai không",
+        "Hello buổi sáng"
+      ],
+      "responses": [
+        "Hello!",
+        "chào cậu",
+        "Hiii"
+      ],
+      "entities": [
+        "B-name"
+      ]
+    },
+    {
+      "tag": "2ndgreeting",
+      "patterns": [
+        "Hôm nay bạn sao rồi",
+        "Hôm nay sao rồi",
+        "Thế nào",
+        "Khỏe không",
+        "Bạn như thế nào",
+        "Bạn sao rồi",
+        "Sao rồi",
+        "Như thế nào rồi",
+        "Bạn ổn không",
+        "Bạn có gặp khó khăn gì không",
+        "Ngày của bạn thế nào"
+      ],
+      "responses": [
+        "Goood",
+        "Tuyệt lắm",
+        "Rất tốt",
+        "Ổn ổn"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye đi đây",
+        "Gặp lại sau",
+        "Bye bạn nhé",
+        "Tôi đi đây",
+        "Tí gặp lại",
+        "Tạm biệt nhé",
+        "Bye nha",
+        "thôi bye nha",
+        "Bận rồi đi đây",
+        "có việc rồi đi đây",
+        "bai bai",
+        "goodbye",
+        "see you",
+        "gặp sau nha",
+        "bai",
+        "bái bai"
+      ],
+      "responses": [
+        "Sad to see you go :(",
+        "Talk to you later",
+        "Goodbye!",
+        "Gặp lại cậu sau"
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "Tên bạn là gì",
+        "Tôi có thể gọi bạn là gì thế ?",
+        "Tên ?",
+        "Mình có thể gọi bạn như thế nào nè ?",
+        "Bạn tên gì thế ?",
+        "Bạn tên gì vậy",
+        "Tên cậu là gì vậy",
+        "Cậu tên gì",
+        "Mình có thể gọi bạn sao nhỉ",
+        "Tên cậu là gì thế"
+      ],
+      "responses": [
+        "SmartFox :>",
+        "Mình tên là Fox",
+        "Fox,SmartFox"
+      ]
+    },
+    {
+      "tag": "where",
+      "patterns": [
+        "Bạn đến từ đâu vậy ?",
+        "Từ đâu ra thế ?",
+        "Bạn được tạo ra hay là ?",
+        "Bạn từ đâu thế ?",
+        "Ai tạo ra cậu vậy",
+        "Cậu đến từ đâu thế"
+      ],
+      "responses": [
+        "Mình được tạo ra bởi FennecDevTeam",
+        "FennecDev đã tạo ra mình",
+        "From your phone, of course!!"
+      ]
+    },
+    {
+      "tag": "user_emotion",
+      "patterns": [
+        "Buồn quá",
+        "Tôi khá là mệt",
+        "Hiện tại tôi khá là căng thẳng",
+        "Trầm cảm"
+      ],
+      "responses": [
+        "Bạn làm rất tốt rồi",
+        "Thư giản đi",
+        "Cố lên"
+      ]
+    },
+    {
+      "tag": "Assist",
+      "patterns": [
+        "Giúp mình tí",
+        "Giúp mình được không",
+        "Giúp mình với",
+        "Giúp mình cái này được không",
+        "Mình có vấn đề cần giải quyết",
+        "Mấy bài này học nhiều lần rồi nhưng vẫn không hiểu",
+        "Vài bài làm nhiều lần rồi nhưng vẫn không hiểu lắm",
+        "Cậu giúp mình làm bài Sinh được không"
+      ],
+      "responses": [
+        "Bạn gặp vấn đề gì vậy ",
+        "Mình luôn ở đây mà",
+        "Vấn đề của bạn là gì thế ?",
+        "Mình biết vấn đề của bạn được không ?"
+      ],
+      "entities": [
+        "B-mh",
+        "Topic"
+      ],
+      "askback": [
+        "Bạn gặp vấn đề gì vậy",
+        "Mình biết thêm vấn đề của bạn được không"
+      ]
+    },
+    {
+      "tag": "guideApp",
+      "patterns": [
+        "Ứng dụng này làm được gì vậy",
+        "Cho mình xem xung quanh app đi",
+        "App này lạ quá",
+        "vòng quanh ứng dụng này có gì vậy",
+        "Mình còn lạ quá",
+        "Ứng dụng làm được gì"
+      ],
+      "responses": [
+        "Ứng dụng này tạo ra để bạn bớt cô đơn"
+      ]
+    },
+    {
+      "tag": "askingme",
+      "patterns": [
+        "Bạn thích James không ?",
+        "Bạn biết đến lịch sử thế giới không ?",
+        "Bạn có bao giờ tắm đêm ?",
+        "Bạn có nghe qua tin đó chưa",
+        "Bạn có nghe tới thầy ở trường mình không",
+        "Bạn biết chưa",
+        "Bạn có bao giờ chưa",
+        "Bạn đã từng",
+        "Bạn thử làm chưa"
+      ],
+      "responses": [
+        "NOT YET"
+      ],
+      "entities": [
+        "B-obj",
+        "B-mh",
+        "B-location",
+        "B-name"
+      ]
+    },
+    {
+      "tag": "negative",
+      "patterns": [
+        "à thôi không có gì",
+        "À thôi",
+        "Khỏi cần thiết đâu",
+        "Khỏi cần",
+        "Thôi được rồi"
+      ],
+      "responses": [
+        "Oh okayyy",
+        "akay",
+        "okk"
+      ]
+    },
+    {
+      "tag": "language",
+      "patterns": [
+        "Bạn biết nói tiếng Việt không",
+        "Bạn biết mấy ngôn ngữ",
+        "Bạn hiểu tiếng Anh không",
+        "Mình biết 3 ngôn ngữ nè",
+        "Sao bạn không nói được tiếng Anh",
+        "Tiếng Pháp khó không",
+        "Mình muốn học tiếng Tây Ban Nha",
+        "Tôi không biết tiếng Đức"
+      ],
+      "responses": [
+        "Mình chỉ nói được tiếng Việt",
+        "Cho tới hiện tại mình chỉ nói được tiếng Việt"
+      ]
+    },
+    {
+      "tag": "hobby",
+      "patterns": [
+        "Bạn thích làm gì",
+        "Lúc rảnh bạn làm gì",
+        "Nếu chán bạn sẽ làm gì",
+        "Nếu có nhiều thời gian bạn chơi gì",
+        "Có việc nào bạn thích làm không",
+        "Bạn vui nhất khi làm gì"
+      ],
+      "responses": [
+        "Lúc rảnh mình thích đọc sách",
+        "Nếu có thời gian thì mình sẽ tập đàn hay học code",
+        "Mình thích coi phim hay lướt youtube, facebook",
+        "Mình thích không làm gì cả"
+      ]
+    },
+    {
+      "tag": "question_from_user",
+      "patterns": [
+        "Định luật Newton là gì vậy",
+        "Định lý Viete là gì",
+        "Cách nào để học tốt hơn",
+        "Mình có cách nào để làm tốt hơn hay không",
+        "Định nghĩa lý thuyết vạn vật",
+        "Định nghĩa niềm vui của cuộc sống",
+        "Bạn thích môn học nào vậy",
+        "Bạn thích nhất môn học gì",
+        "Bộ phim bạn thích nhất là gì",
+        "Bạn thích sách thể loại gì",
+        "Sách gì bạn thích đọc nhất",
+        "Viete là gì thế",
+        "Bạn làm bằng cách nào thế",
+        "Cách nào để đi xa hơn"
+      ],
+      "responses": [
+        "Nè",
+        "Chắc là cái này",
+        "Xem thử đi",
+        "Check it out"
+      ]
+    },
+    {
+      "tag": "thx_back",
+      "patterns": [
+        "Cảm ơn nha",
+        "Cảm ơn nhiều",
+        "Tớ cảm ơn cậu nhiều",
+        "Mình cảm ơn bạn",
+        "Cảm ơn cậu",
+        "Cảm ơn rất nhiều"
+      ],
+      "responses": [
+        "Your welcome",
+        ":>",
+        "hehe",
+        "Không khách sáo"
+      ]
+    },
+    {
+      "tag": "user_amazed",
+      "patterns": [
+        "Vậy luôn",
+        "Vậy hả",
+        "Thật à",
+        "Hay á",
+        "Tuyệt",
+        "Cool",
+        "Awesome",
+        "Hay đó",
+        "Được tốt lắm"
+      ],
+      "responses": [
+        "Yeah",
+        "Ừm",
+        "Yup",
+        "Yip"
+      ]
+    }
+  ]
+}

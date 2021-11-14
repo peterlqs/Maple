@@ -1,0 +1,16 @@
+{
+  "noun": 1,
+  "verb": 2,
+  "x": 3,
+  "adp": 4,
+  "adj": 5,
+  "propn": 6,
+  "num": 7,
+  "cconj": 8,
+  "det": 9,
+  "sconj": 10,
+  "aux": 11,
+  "part": 12,
+  "intj": 13,
+  "<PAD>": 0
+}
