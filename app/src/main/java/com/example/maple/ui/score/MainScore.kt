@@ -169,9 +169,9 @@ class MainScore : Fragment(), WhichSubject {
             }
 
         // TODO DEV REMOVE LATER
-        binding.button2.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainExperiment)
-        }
+//        binding.button2.setOnClickListener {
+//            Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainExperiment)
+//        }
         binding.fabCam.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_mainScore_to_mainCamera)
         }
