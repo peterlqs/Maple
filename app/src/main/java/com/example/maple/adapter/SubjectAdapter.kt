@@ -1,5 +1,6 @@
 package com.example.maple.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class SubjectAdapter(private val practice: MutableList<SubjectInfo>) :
         } else {
             holder.chapter.text = practice[position].section
             holder.link.text = practice[position].link
+            Log.d("SLKD", practice[position].link.toString())
         }
     }
 

@@ -31,6 +31,8 @@
         <entry key="..\:/HDNN/2021/TechRMIT/Maple/app/src/main/res/layout/row_second_score.xml" value="0.176" />
         <entry key="..\:/HDNN/2021/TechRMIT/Maple/app/src/main/res/layout/setting_setting_fragment.xml" value="0.23596014492753623" />
         <entry key="..\:/HDNN/2021/TechRMIT/Maple/app/src/main/res/layout/user_information_setting_fragment.xml" value="0.23596014492753623" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1783783783783784" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/drawable/button.xml" value="0.3310810810810811" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/drawable/dialog_rounded_bg.xml" value="0.19054054054054054" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/drawable/ic_anonymous.xml" value="0.3310810810810811" />
@@ -52,17 +54,17 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/fragment_main_setting.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/fragment_notifications.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/fragment_subject_recommend.xml" value="0.14447463768115942" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_camera_fragment.xml" value="0.1547933157431838" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_camera_fragment.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_dialog_fragment.xml" value="0.3171171171171171" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_mic_fragment.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_notification_fragment.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_recommendation_fragment.xml" value="0.22" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_score_fragment.xml" value="0.18" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_score_fragment.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/main_setting_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_main_score.xml" value="0.3171171171171171" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_notification.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_practice.xml" value="0.25" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_receive.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_receive.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_recommendation.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_second_score.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/row_send.xml" value="0.1" />
@@ -70,8 +72,8 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/setting_setting_fragment.xml" value="0.3171171171171171" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/layout/user_information_setting_fragment.xml" value="0.3171171171171171" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Trung Kien/StudioProjects/Maple/app/src/main/res/layout/fragment_subject_recommend.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Trung Kien/StudioProjects/Maple/app/src/main/res/layout/main_score_fragment.xml" value="0.31068840579710144" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1783783783783784" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Maple/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1783783783783784" />
       </map>
     </option>
   </component>

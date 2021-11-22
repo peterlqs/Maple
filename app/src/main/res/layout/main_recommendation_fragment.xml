@@ -15,10 +15,10 @@
         android:background="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="@+id/userAva"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <ImageView
         android:id="@+id/name_background2"
@@ -32,18 +32,7 @@
         app:layout_constraintStart_toStartOf="@+id/user_name2"
         app:layout_constraintTop_toBottomOf="@+id/name_background" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/userAva"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039"
-        app:shapeAppearanceOverlay="@style/circular" />
+
 
     <TextView
         android:id="@+id/user_name"
@@ -113,5 +102,17 @@
         app:layout_constraintEnd_toEndOf="@+id/name_background2"
         app:layout_constraintTop_toTopOf="@+id/name_background2" />
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/userAva"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="@+id/user_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user_name"
+        app:layout_constraintVertical_bias="0.387"
+        app:shapeAppearanceOverlay="@style/circular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

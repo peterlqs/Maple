@@ -216,6 +216,7 @@ class MainCamera : Fragment() {
                                     allList.add(allThings)
                                     // Finish scanning
                                     var resultText = ""
+                                    resultText += "Kết quả scan được\n\n"
                                     for (score in complete) {
                                         resultText += "${score.subject} :\n HS1 : ${score.score1}\n HS2 : ${score.score2}\n HS3 : ${score.score3}\n"
                                     }

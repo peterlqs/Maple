@@ -3,20 +3,20 @@
     <item
         android:id="@+id/mainScore"
         android:icon="@drawable/ic_baseline_post_add_24"
-        android:title="Score" />
+        android:title="Điểm" />
     <item
         android:id="@+id/mainMic"
-        android:icon="@drawable/ic_baseline_mic_none_24"
-        android:title="Mic" />
+        android:icon="@drawable/ic_baseline_chat_24"
+        android:title="Chat" />
     <item
         android:id="@+id/bbn_item3"
         android:title=""/>
     <item
         android:id="@+id/mainNotification"
         android:icon="@drawable/ic_baseline_notifications_24"
-        android:title="Bell" />
+        android:title="Thông báo" />
     <item
         android:id="@+id/mainSetting"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Setting" />
+        android:title="Cài đặt" />
 </menu>

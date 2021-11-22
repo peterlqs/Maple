@@ -54,7 +54,7 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_check_24"
+            android:src="@drawable/ic_baseline_thumb_up_24"
             app:layout_anchor="@id/bottomAppBar" />
 
 

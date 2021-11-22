@@ -48,12 +48,15 @@ class SubjectRecommend : Fragment() {
 //                    val data = it.getValue<SubjectInfo>()
 //                    Log.d("Recommend", data?.link.toString())
                     Log.d("ad", value.value.toString())
-                    val subjectList =
+                    var subjectList =
                         value.value.toString().substring(1, value.value.toString().length - 1)
                             .split(",").associate {
-                                val (left, right) = it.split("=")
+                                val (left, right) = it.trim().split("=", limit = 2)
                                 left to right.toString()
                             }
+                    subjectList =
+                        subjectList.toList().sortedBy { (_, value) -> value.length }.toMap()
+
                     val allThings = mutableListOf<SubjectInfo>()
                     for ((key, value) in subjectList) {
                         allThings.add(SubjectInfo(key, value))
