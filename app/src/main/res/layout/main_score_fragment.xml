@@ -41,7 +41,7 @@
         android:textColor="@color/palette4"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
-        android:paddingVertical="10dp"
+        android:paddingVertical="5dp"
         app:layout_constraintEnd_toEndOf="@+id/name_background"
         app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="@+id/name_background"
@@ -60,6 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_average" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_gravity="center"
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"

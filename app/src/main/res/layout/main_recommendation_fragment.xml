@@ -9,10 +9,11 @@
 
     <ImageView
         android:id="@+id/name_background"
-        android:layout_width="230dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:alpha="0.5"
         android:background="@drawable/rectangle"
+        android:layout_marginRight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.433"
@@ -36,11 +37,12 @@
 
     <TextView
         android:id="@+id/user_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/utm_avo_bold"
         android:text="Your name goes here"
+        android:layout_marginStart="80dp"
         android:textColor="@color/palette4"
         app:layout_constraintBottom_toBottomOf="@+id/name_background"
         app:layout_constraintEnd_toEndOf="@+id/name_background"
