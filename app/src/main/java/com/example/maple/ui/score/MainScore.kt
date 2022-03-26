@@ -151,13 +151,13 @@ class MainScore : Fragment(), WhichSubject {
                 val lowerScores = binding.txtLower
                 val allLowerScore = lowerThan8.toString().replace("[", "").replace("]", "")
                 if (allLowerScore.isNotEmpty()) lowerScores.text =
-                    "Điểm dưới $wantedScore : $allLowerScore"
+                    "Subjects below $wantedScore : $allLowerScore"
                 //Average score of all subject
                 val averageScoreAll = binding.txtAverage
                 val averageScore = "%.2f".format(totalScore.div(totalMul)).toDouble()
                 //If NaN then don't set
                 if (!averageScore.isNaN()) averageScoreAll.text =
-                    "Điểm trung bình : $averageScore"
+                    "Average score : $averageScore"
                 //Populate the recycler view
                 val subjectView = binding.recyclerView
                 subjectView.apply {

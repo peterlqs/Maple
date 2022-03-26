@@ -38,7 +38,7 @@
         android:layout_below="@id/fabAddAvaSetting"
         android:layout_centerHorizontal="true"
         android:ellipsize="end"
-        android:text="Tên: Tên ở đây nè nhe" />
+        android:text="Your name" />
 
     <TextView
         android:id="@+id/userInformationSetting"
@@ -48,7 +48,7 @@
         android:layout_below="@id/userNameSetting"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Thông tin của bạn" />
+        android:text="Your info" />
 
     <ImageView
         android:id="@+id/lineBelowUserInfo"
@@ -67,7 +67,7 @@
         android:layout_below="@id/lineBelowUserInfo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Cài đặt" />
+        android:text="Setting" />
 
     <ImageView
         android:id="@+id/lineBelowSetting"
@@ -86,7 +86,7 @@
         android:layout_below="@id/lineBelowSetting"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Thông tin ứng dụng" />
+        android:text="About app" />
 
     <ImageView
         android:id="@+id/lineBelowApplicationInformation"
@@ -105,7 +105,7 @@
         android:layout_below="@id/lineBelowApplicationInformation"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Đăng xuất" />
+        android:text="Logout" />
 
 
 </RelativeLayout>

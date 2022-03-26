@@ -3,7 +3,7 @@
     <item
         android:id="@+id/mainScore"
         android:icon="@drawable/ic_baseline_post_add_24"
-        android:title="Điểm" />
+        android:title="Score" />
     <item
         android:id="@+id/mainMic"
         android:icon="@drawable/ic_baseline_chat_24"
@@ -14,9 +14,9 @@
     <item
         android:id="@+id/mainNotification"
         android:icon="@drawable/ic_baseline_notifications_24"
-        android:title="Thông báo" />
+        android:title="Notification" />
     <item
         android:id="@+id/mainSetting"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="Cài đặt" />
+        android:title="Setting" />
 </menu>

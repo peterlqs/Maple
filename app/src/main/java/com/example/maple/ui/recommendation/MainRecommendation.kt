@@ -55,9 +55,9 @@ class MainRecommendation : Fragment() {
                 Log.w(MainScore.TAG, "listen:error", error)
                 return@addSnapshotListener
             }
-            binding.userName.text = "Tên bạn : " + value?.get("name").toString()
+            binding.userName.text = "Your name: " + value?.get("name").toString()
             if (value?.get("score") != null) {
-                binding.userName2.text = "Mục tiêu điểm số : "
+                binding.userName2.text = "Your score goal: "
                 binding.editTextTextPersonName3.setText(value.get("score").toString())
             }
         }

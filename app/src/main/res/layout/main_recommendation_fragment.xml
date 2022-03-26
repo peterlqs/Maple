@@ -59,7 +59,7 @@
         android:padding="20dp"
         android:paddingVertical="40dp"
         android:paddingEnd="60dp"
-        android:text="Chưa nhập điểm mong muốn"
+        android:text="You haven't entered your score"
         android:textColor="@color/palette4"
         app:layout_constraintBottom_toBottomOf="@+id/name_background2"
         app:layout_constraintEnd_toEndOf="parent"

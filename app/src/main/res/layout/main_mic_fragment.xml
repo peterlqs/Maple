@@ -14,7 +14,7 @@
         android:layout_marginLeft="5dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
-        android:hint="Chat với bot"
+        android:hint="Chat with bot"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="25dp"
         app:boxCornerRadiusBottomStart="25dp"

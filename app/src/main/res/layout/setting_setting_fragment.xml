@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="50dp"
@@ -43,13 +41,13 @@
 
     <TextView
         android:id="@+id/setting1"
+        style="@style/TextSetting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextSetting"
-        android:text="Cài gì đó"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/lineAboveUserInfo"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/lineAboveUserInfo" />
+        android:layout_marginTop="30dp"
+        android:text="Cài gì đó" />
 
     <TextView
         android:id="@+id/setting2"
