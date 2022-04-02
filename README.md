@@ -18,20 +18,24 @@ This project was made for RMIT Tech Genius 2021 competition.
 
 Users can input their score through typing or scanning if there is a template for it.
 
-![](https://i.imgur.com/fwM45mm.png =200x)
+<p align="center">
+  <img src="https://i.imgur.com/fwM45mm.png" width="350">
+</p>
 
 After users entered the scores, a summary will be available. All subjects that have scores below their desired score will be mentioned.
 
-![](https://i.imgur.com/BUrw55c.png =200x)
-
-
+<p align="center">
+  <img src="https://i.imgur.com/BUrw55c.png" width="350">
+</p>
 
 ### II/ Videos recommendation system
 
 **Recommends lessons for a specific individual, lessons will be grouped by subjects.**
 
+<p align="center">
+  <img src="https://i.imgur.com/702rZLi.png" width="350">
+</p>
 
-![](https://i.imgur.com/702rZLi.png =200x)
 The screen above displays subjects that are currently under the favored score.
 
 
@@ -43,7 +47,9 @@ The curriculum in every school is quite similar to each other. By knowing that, 
 
 Our goal is to create a chatbot that can give advice and specific lesson to user. Even more, users can even have a little talk with it for fun.
 
-![](https://i.imgur.com/6jTlhFB.jpg =200x)
+<p align="center">
+  <img src="https://i.imgur.com/6jTlhFB.jpg" width="350">
+</p>
 
 So far, our Bot has been developed mostly by BiLSTM with intents data self-collected.
 
